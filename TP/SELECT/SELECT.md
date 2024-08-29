@@ -44,4 +44,39 @@ L'architecture Client - Serveur est préservée.
 
 Notre serveur local est vide. Nous allons créer une nouvelle base de donnée. De manière générale, un projet = une base de données.
 
-![Create Database](/TP/SELECT/videos/create_database.mp4)
+`Serveurs -> PostgreSQL 16 -> Bases de données -> clic droit -> Créer -> Base de données`
+
+![Create Database](/TP/SELECT/videos/create_database.gif)
+
+Nous avons maintenant une base de données `SQL G2`, qui nous suivra durant tout le cours.
+
+Télechargez le fichier suivant : [table_teachers.csv](/TP/SELECT/data/teachers.csv).
+
+Nous allons maintenant pousser nos données csv sur le serveur, dans une nouvelle table.
+
+Parcourez l'arborescence pour pouvoir créer une table :
+`SQL_G2 -> Schémas -> public -> Tables -> clic droit -> Créer -> Table`
+
+> Les schémas sont des sortes de sous dossiers. Vous pourriez créer un schéma pour chaque TP par exemple.
+
+Donnez un nom à votre table et allez dans l'onglet `Colonnes`. Ajouttez une colonne pour chaque colonne du fichier csv.
+
+> Attention aux types ! Les nombres entiers sont des `integer`, les textes sont des `character varying`, et les dates... des `date`.
+
+![Ajout des colonnes](/TP/SELECT/videos/columns.gif)
+
+Pas besoin de toucher les autres options pour l'instant.
+
+Vous pouvez afficher votre nouvelle table avec `clic droit -> Afficher -> Toutes les lignes`.
+
+> Cette page ne se raffraichit pas toute seule. Si vous modifiez la table, appuyez sur `F5` pour raffrachir l'affichage.
+
+Nous avons préparé notre table : elle est prête à recevoir des données.
+
+Importez le csv avec l'outil de PgAdmin.
+
+![import](/TP/SELECT/videos/import.gif)
+
+> Attention à bien être en mode 'Import'
+
+Nos données sont bien importées, on peut maintenant faire des requêtes sur la base.
