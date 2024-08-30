@@ -24,7 +24,7 @@ Nous avons installé le serveur PostgreSQL en local, ainsi que l'interface graph
 
 # Premiers pas
 
-## Connection au Seerveur
+## Connection au Serveur
 
 Ouvrez PgAdmin4.
 
@@ -50,6 +50,8 @@ Notre serveur local est vide. Nous allons créer une nouvelle base de donnée. D
 
 Nous avons maintenant une base de données `SQL G2`, qui nous suivra durant tout le cours.
 
+<br>
+
 Télechargez le fichier suivant : [table_teachers.csv](/TP/SELECT/data/teachers.csv).
 
 Nous allons maintenant pousser nos données csv sur le serveur, dans une nouvelle table.
@@ -72,6 +74,8 @@ Vous pouvez afficher votre nouvelle table avec `clic droit -> Afficher -> Toutes
 > Cette page ne se raffraichit pas toute seule. Si vous modifiez la table, appuyez sur `F5` pour raffrachir l'affichage.
 
 Nous avons préparé notre table : elle est prête à recevoir des données.
+
+<br>
 
 Importez le csv avec l'outil de PgAdmin.
 
