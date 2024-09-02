@@ -35,7 +35,7 @@ SELECT first_name, school FROM teachers
 
 <details>
     <summary> Indice </summary>
-    WHERE
+    `WHERE`
 </details>
 
 <!-- ```sql
@@ -43,7 +43,7 @@ SELECT first_name, school FROM teachers
 WHERE school = 'Myers Middle School'
 ``` -->
 
-1) Quels sont les prénoms des profs avec un salaire supérieur à `40000` dollars par an ?
+4) Quels sont les prénoms des profs avec un salaire supérieur à `40000` dollars par an ?
 
 <!-- ```sql
 SELECT first_name FROM teachers
@@ -52,12 +52,22 @@ WHERE salary > 40000
 
 5) Ordonnez le tableau pour avoir tous les profs de `F.D. Roosevelt HS`, puis tous les profs de `Myers Middle School`. Il faut prendre toutes les colonnes.
 
+<details>
+    <summary> Indice </summary>
+    `ORDER BY`
+</details>
+
 <!-- ```sql
 SELECT * FROM teachers
 ORDER BY school ASC
 ``` -->
 
 6) Quels sont les prénoms des profs recrutés entre 2009 et 2012 ?
+
+<details>
+    <summary> Indice </summary>
+    `WHERE ... AND`
+</details>
 
 <!-- ```sql
 SELECT first_name FROM teachers
@@ -73,6 +83,11 @@ ORDER BY salary DESC
 ``` -->
 
 8) Ecrire une requête pour obtenir le prénom du prof avec le salaire le plus haut.
+
+<details>
+    <summary> Indice </summary>
+    `LIMIT 1`
+</details>
 
 <!-- ```sql
 SELECT first_name FROM teachers
