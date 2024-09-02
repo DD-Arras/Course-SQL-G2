@@ -35,7 +35,7 @@ SELECT first_name, school FROM teachers
 
 <details>
     <summary> Indice </summary>
-    `WHERE`
+    WHERE
 </details>
 
 <!-- ```sql
@@ -54,7 +54,7 @@ WHERE salary > 40000
 
 <details>
     <summary> Indice </summary>
-    `ORDER BY`
+    ORDER BY
 </details>
 
 <!-- ```sql
@@ -66,7 +66,7 @@ ORDER BY school ASC
 
 <details>
     <summary> Indice </summary>
-    `WHERE ... AND`
+    WHERE ... AND
 </details>
 
 <!-- ```sql
@@ -86,7 +86,7 @@ ORDER BY salary DESC
 
 <details>
     <summary> Indice </summary>
-    `LIMIT 1`
+    LIMIT 1
 </details>
 
 <!-- ```sql
@@ -103,3 +103,75 @@ WHERE school = 'Myers Middle School'
 ORDER BY salary DESC
 LIMIT 1
 ``` -->
+
+## Table `repères topographiques`
+
+De la même manière que vous avez importé `teachers.csv`, téléchargez et importez la table csv des [repères topographiques des Hauts de Seine](https://opendata.hauts-de-seine.fr/explore/dataset/reperes-topographiques/export/?disjunctive.nature&disjunctive.commune&sort=commune) en base de données.
+
+> Lors de la sélection du séparateur, indiquez `;` (point-virgule) à la place de `,` (virgule).
+
+> Si vous avez un doute sur le type d'une colonne, préferez `character varying`. La conversion vers d'autres types de données est plus facile.
+
+#### Exercices
+
+Formulez des requêtes SQL pour obtenir le résultat demandé.
+
+1) Quels sont les identifiants des repères de la commune de `Sceaux` ?
+
+<!-- ```sql
+SELECT identifiant FROM reperes
+WHERE commune="SCEAUX"
+``` -->
+
+2) Quels sont les identifiants des repères de type `Spit` avec une observation ?
+
+<!-- ```sql
+SELECT identifiant FROM reperes
+WHERE nature="Spit"
+AND observation != ''
+``` -->
+
+<!-- Attention voir si il faut pas utiliser IS NOT NULL -->
+
+3) En Lambert93, quels sont les identifiants des repères à l'ouest de `X=647888` ?
+
+<!-- ```sql
+SELECT identifiant FROM reperes
+WHERE x_l93 < 647888
+``` -->
+
+3) En Lambert93, quels sont les identifiants des repères à l'ouest de `X=647888`, ou au nord de `Y=6854692`?
+
+<details>
+    <summary> Indice </summary>
+    WHERE ... OR
+</details>
+
+<!-- ```sql
+SELECT identifiant FROM reperes
+WHERE x_l93 < 647888
+OR y_l93 > 6854692
+``` -->
+
+4) Comparez les résultats des deux requêtes suivantes :
+
+```sql
+SELECT commune FROM reperes
+```
+```sql
+SELECT DISTINCT commune FROM reperes
+```
+
+5) Formulez une requête pour obtenir les trois codes postaux les plus hauts. Les trois doivent être différents.
+
+```sql
+SELECT DISTINCT codepostal FROM reperes
+ORDER BY codepostal DESC
+```
+
+6) Préparez une requête pour filtrer les repères ayant une nature `Repère clou d'arpentage`.
+
+<details>
+    <summary> Indice </summary>
+    <a href="https://stackoverflow.com/questions/1586560/how-do-i-escape-a-single-quote-in-sql-server">Echapper un apostrophe</a>
+</details>
