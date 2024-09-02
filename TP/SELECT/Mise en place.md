@@ -10,7 +10,7 @@ PgAdmin est un outil d'admninistration de bases de données.
 
 ---
 
-# Installations
+## Installations
 
 Rendez vous sur [EDB Downloads](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) et téléchargez la dernière version pour votre système d'exploitation.
 
@@ -21,8 +21,6 @@ Puisque nous sommes dans un environnement local, je vous conseille d'utiliser un
 Nous avons installé le serveur PostgreSQL en local, ainsi que l'interface graphique PgAdmin4 pour administrer notre nouvelle base de données.
 
 ---
-
-# Premiers pas
 
 ## Connection au Serveur
 
@@ -40,7 +38,7 @@ L'architecture Client - Serveur est préservée.
 
 ![Schéma Client Serveur](/TP/SELECT/images/schema_client_serveur.png)
 
-## Création d'une base et import d'une table CSV
+## Création d'une base
 
 Notre serveur local est vide. Nous allons créer une nouvelle base de donnée. De manière générale, un projet = une base de données.
 
@@ -50,7 +48,7 @@ Notre serveur local est vide. Nous allons créer une nouvelle base de donnée. D
 
 Nous avons maintenant une base de données `SQL G2`, qui nous suivra durant tout le cours.
 
-<br>
+## Import d'une table CSV
 
 Télechargez le fichier suivant : [table_teachers.csv](/TP/SELECT/data/teachers.csv).
 
@@ -71,6 +69,10 @@ Pas besoin de toucher les autres options pour l'instant.
 
 Vous pouvez afficher votre nouvelle table avec `clic droit -> Afficher -> Toutes les lignes`.
 
+Vous pouvez aussi appuyer sur ce bouton :
+
+![afficher toutes les lignes](/TP/SELECT/images/afficher_toutes_les_lignes.png)
+
 > Cette page ne se raffraichit pas toute seule. Si vous modifiez la table, appuyez sur `F5` pour raffrachir l'affichage.
 
 Nous avons préparé notre table : elle est prête à recevoir des données.
@@ -84,3 +86,15 @@ Importez le csv avec l'outil de PgAdmin.
 > Attention à bien être en mode 'Import'
 
 Nos données sont bien importées, on peut maintenant faire des requêtes sur la base.
+
+## Ouverture de l'éditeur de requêtes
+
+Afin de pouvoir écrire des requête, on va ouvrir l'éditeur de requête.
+
+`SQL_G2 -> clic droit -> Editeur de requêtes`
+
+Vous pouvez aussi cliquer sur ce bouton :
+
+![Editeur de requetes](/TP/SELECT/images/editeur_de_requetes.png)
+
+Vous êtes prets à requêter la base de données en utilisant SQL, rendez vous sur [TP - Requêtes de base](/TP/SELECT/Requetes%20de%20base.md).
