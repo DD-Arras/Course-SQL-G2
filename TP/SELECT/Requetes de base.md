@@ -164,10 +164,10 @@ SELECT DISTINCT commune FROM reperes
 
 5) Formulez une requête pour obtenir les trois codes postaux les plus hauts. Les trois doivent être différents.
 
-```sql
+<!-- ```sql
 SELECT DISTINCT codepostal FROM reperes
 ORDER BY codepostal DESC
-```
+``` -->
 
 6) Préparez une requête pour filtrer les repères ayant une nature `Repère clou d'arpentage`.
 
@@ -175,3 +175,8 @@ ORDER BY codepostal DESC
     <summary> Indice </summary>
     <a href="https://stackoverflow.com/questions/1586560/how-do-i-escape-a-single-quote-in-sql-server">Echapper un apostrophe</a>
 </details>
+
+<!-- ```sql
+SELECT identifiant FROM reperes
+WHERE nature='Repère clou d''arpentage'
+``` -->
