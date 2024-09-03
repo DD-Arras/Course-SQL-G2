@@ -22,13 +22,13 @@ Nous allons importer deux tables, en une seule fois, en utilisant le format nati
 
 Télechargez ce fichier : [entreprise.sql](/TP/JOIN/data/entreprise.sql).
 
-Il a le même format que le fichier de requêtes que vous avez peut-être sauvegardé hier. Il est donc composé, lui aussi, de requête SQL.
+Il a le même format que le fichier de requêtes que vous avez peut-être sauvegardé hier. Il est donc composé, lui aussi, de requêtes SQL.
 
-Ces requêtes (qui ne sont pas à apprendre), permettent de créer deux tables, `entreprises` et `employés`, avant de les remplir.
+Ces requêtes (qui ne sont pas à apprendre), permettent de créer deux tables, `entreprises` et `employes`, avant de les remplir.
 
 Pour lancer ces requêtes, suivez ces étapes :
- - assurez vous de bien vous placer dans le nouveau schéma que vous avez créé.
- - ouvrez l'éditeur de requêtes.
+ - Assurez vous de bien vous placer dans le nouveau schéma que vous avez créé.
+ - Ouvrez l'éditeur de requêtes.
  - Appuyez sur le bouton "Ouvrir fichier" (ou utilisez le raccourci `Ctrl + O`).
  - Rentrez le fichier téléchargé.
  - Appuyez sur le bouton "Exécuter" (ou utilisez le raccourci `F5`).
@@ -73,7 +73,7 @@ ON ent.id = emp.entreprise_id
 
 Pour les questions suivantes, Formulez des requêtes SQL pour obtenir le résultat demandé.
 
-2) Quel est le nom de l'entreprise de `Nancy Jones` ?
+2) Quel est le nom de l'entreprise de `Nancy` `Jones` ?
 
 <!-- ```sql
 SELECT ent.nom, FROM jointures.entreprises AS ent
@@ -94,11 +94,13 @@ WHERE ent.nom = 'General Electric'
 
 > Indication : Pour faciliter la lecture de la table de résultat, vous pouvez aussi donner un alias dans vos noms de colonnes.
 <details>
-    <summary> Afficher la requête </summary>
+    <summary><i> Afficher un exemple de requête </i></summary>
+    <code>
     SELECT ent.nom AS nom_entreprise, emp.nom AS nom_employe
     FROM jointures.entreprises AS ent
     JOIN jointures.employes AS emp
     ON ent.id = emp.entreprise_id
+    </code>
 </details>
 
 4) Ou se situe l'entreprise qui possède l'employé avec le meilleur salaire ?
@@ -111,7 +113,7 @@ ORDER BY salaire DESC
 LIMIT 1
 ``` -->
 
-5) Parmis les employés situés à `Atlanta`, lequel est le moins bien payé, et quelle est sont entreprise ?
+5) Parmis les employés situés à `Atlanta`, lequel est le moins bien payé, et quelle est son entreprise ?
 
 <!-- ```sql
 SELECT ent.nom, emp.nom FROM jointures.entreprises AS ent
@@ -142,7 +144,7 @@ Formulez des requêtes SQL pour obtenir le résultat demandé.
 
 2) Quand est-ce que le groupe `Animals as Leaders` a sorti des albums ?
 
-3) En faisant maintenant une jointure entre `groupes` et `musiciens`, quels sont les noms et prénoms des membres du groupe `GIMS` ou `Billie Eilish` ?
+3) En faisant maintenant une jointure entre `groupes` et `musiciens`, quels sont les noms et prénoms des membres des groupe `GIMS` et `Billie Eilish` ?
 
 4) En quelle année `Djuna` `Ghandi` a t-il commencé sa carrière ?
 
@@ -153,7 +155,8 @@ Formulez des requêtes SQL pour obtenir le résultat demandé.
 Pour associer chaque musicien a ses instruments, nous allons effectuer une double jointure. Essayez cette requête :
 
 ```sql
-SELECT m.prenom, m.nom, i.nom AS instrument FROM jointures.link_musiciens_instruments AS l
+SELECT m.prenom, m.nom, i.nom AS instrument
+FROM jointures.link_musiciens_instruments AS l
 JOIN jointures.musiciens AS m
 ON l.musicien_id = m.id
 JOIN jointures.instruments AS i
@@ -164,18 +167,18 @@ On peut ainsi cumuler le nombre de jointures, autant que nous en avons besoin.
 
 > Attention ! Sur des tables de taille importante, une jointure peut être couteuse et donc prendre du temps. Pensez à ne réaliser que les jointures qui sont nécessaires à votre requête.
 
-Formulez une requêtes pour les questions suivantes :
+Formulez une requêtes pour las questions suivantes :
 
 7) Quels musiciens utilisent leur voix ?
 
-Les requêtes suivantes utilisent plusieurs jointures pour aboutir... A vous de determiner lesquelles.
+Les requêtes suivantes utilisent plusieurs jointures pour aboutir... A vous de déterminer lesquelles.
 
 8) Quels groupes utilisent une batterie ?
 
 9) Quel groupe possède la chanson avec le moins de `streams` ?
 
-10) Quels sont les instruments utilisés par les compositeurs des sons ?
+10) Quels sont les instruments utilisés par les compositeurs de chaque sons ? Affichez Le titre, le nom du compositeur, et ses instruments.
 
 11) Quels sont les albums dans lequels il y a des paroles, et dont le groupe a été créé avant 2008 ?
 
-12) Pourquoi n'est il pas possible, avec vos connaissance actelles, de formuler une requête répondant à la question suivante : Quel est la chanson avec le plus de streams, parmis les chansons composée par le musicien le plus jeune ?
+12) Pourquoi n'est il pas possible, avec vos connaissance actelles, de formuler une requête répondant à la question suivante : Quel est la chanson avec le plus de streams, parmis les chansons composées par le musicien le plus jeune ?
