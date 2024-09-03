@@ -59,7 +59,7 @@ Parcourez l'arborescence pour pouvoir créer une table :
 
 > Les schémas sont des sortes de sous dossiers. Vous pourriez créer un schéma pour chaque TP par exemple.
 
-Donnez un nom à votre table et allez dans l'onglet `Colonnes`. Ajouttez une colonne pour chaque colonne du fichier csv.
+Donnez le nom `teachers` à votre table et allez dans l'onglet `Colonnes`. Ajouttez une colonne pour chaque colonne du fichier csv.
 
 > Attention aux types ! Les nombres entiers sont des `integer`, les textes sont des `character varying`, et les dates... des `date`.
 
