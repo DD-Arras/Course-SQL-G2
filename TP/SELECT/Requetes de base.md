@@ -21,15 +21,15 @@ SELECT last_name FROM teachers
 
 1) Quels sont les prénoms de tous les profs ?
 
-<!-- ```sql
+```sql
 SELECT first_name FROM teachers
-``` -->
+```
 
 2) Quels sont les prénoms, et l'école, de tous les profs ?
 
-<!-- ```sql
+```sql
 SELECT first_name, school FROM teachers
-``` -->
+```
 
 3) Quels sont les prénoms, et l'école, des profs allant à l'école `Myers Middle School` ?
 
@@ -38,17 +38,17 @@ SELECT first_name, school FROM teachers
     WHERE
 </details>
 
-<!-- ```sql
+```sql
 SELECT first_name, school FROM teachers
 WHERE school = 'Myers Middle School'
-``` -->
+```
 
 4) Quels sont les prénoms des profs avec un salaire supérieur à `40000` dollars par an ?
 
-<!-- ```sql
+```sql
 SELECT first_name FROM teachers
 WHERE salary > 40000
-``` -->
+```
 
 5) Ordonnez le tableau pour avoir tous les profs de `F.D. Roosevelt HS`, puis tous les profs de `Myers Middle School`. Il faut prendre toutes les colonnes.
 
@@ -57,10 +57,10 @@ WHERE salary > 40000
     ORDER BY
 </details>
 
-<!-- ```sql
+```sql
 SELECT * FROM teachers
 ORDER BY school ASC
-``` -->
+```
 
 6) Quels sont les prénoms des profs recrutés entre 2009 et 2012 ?
 
@@ -69,18 +69,18 @@ ORDER BY school ASC
     WHERE ... AND
 </details>
 
-<!-- ```sql
+```sql
 SELECT first_name FROM teachers
 WHERE hire_date > '2009-01-01'
 AND hire_date < '2012-01-01'
-``` -->
+```
 
 7) Lister les profs (toutes les colonnes) du salaire le plus haut au salaire le plus bas.
 
-<!-- ```sql
+```sql
 SELECT * FROM teachers
 ORDER BY salary DESC
-``` -->
+```
 
 8) Ecrire une requête pour obtenir le prénom du prof avec le salaire le plus haut.
 
@@ -89,20 +89,20 @@ ORDER BY salary DESC
     LIMIT 1
 </details>
 
-<!-- ```sql
+```sql
 SELECT first_name FROM teachers
 ORDER BY salary DESC
 LIMIT 1
-``` -->
+```
 
 9) Quel est le prénom du prof avec le salaire le plus haut, dans les profs de `Myers Middle School` ?
 
-<!-- ```sql
+```sql
 SELECT first_name FROM teachers
 WHERE school = 'Myers Middle School'
 ORDER BY salary DESC
 LIMIT 1
-``` -->
+```
 
 ## Table `repères topographiques`
 
@@ -118,27 +118,25 @@ Formulez des requêtes SQL pour obtenir le résultat demandé.
 
 1) Quels sont les identifiants des repères de la commune de `Sceaux` ?
 
-<!-- ```sql
+```sql
 SELECT identifiant FROM reperes
 WHERE commune="SCEAUX"
-``` -->
+```
 
 2) Quels sont les identifiants des repères de type `Spit` avec une observation ?
 
-<!-- ```sql
+```sql
 SELECT identifiant FROM reperes
 WHERE nature="Spit"
-AND observation != ''
-``` -->
-
-<!-- Attention voir si il faut pas utiliser IS NOT NULL -->
+AND observation IS NOT NULL
+```
 
 3) En Lambert93, quels sont les identifiants des repères à l'ouest de `X=647888` ?
 
-<!-- ```sql
+```sql
 SELECT identifiant FROM reperes
 WHERE x_l93 < 647888
-``` -->
+```
 
 3) En Lambert93, quels sont les identifiants des repères à l'ouest de `X=647888`, ou au nord de `Y=6854692`?
 
@@ -147,11 +145,11 @@ WHERE x_l93 < 647888
     WHERE ... OR
 </details>
 
-<!-- ```sql
+```sql
 SELECT identifiant FROM reperes
 WHERE x_l93 < 647888
 OR y_l93 > 6854692
-``` -->
+```
 
 4) Comparez les résultats des deux requêtes suivantes :
 
@@ -164,10 +162,10 @@ SELECT DISTINCT commune FROM reperes
 
 5) Formulez une requête pour obtenir les trois codes postaux les plus hauts. Les trois doivent être différents.
 
-<!-- ```sql
+```sql
 SELECT DISTINCT codepostal FROM reperes
 ORDER BY codepostal DESC
-``` -->
+```
 
 6) Préparez une requête pour filtrer les repères ayant une nature `Repère clou d'arpentage`.
 
@@ -176,7 +174,7 @@ ORDER BY codepostal DESC
     <a href="https://stackoverflow.com/questions/1586560/how-do-i-escape-a-single-quote-in-sql-server">Echapper un apostrophe</a>
 </details>
 
-<!-- ```sql
+```sql
 SELECT identifiant FROM reperes
 WHERE nature='Repère clou d''arpentage'
-``` -->
+```
