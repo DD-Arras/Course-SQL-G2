@@ -7,3 +7,5 @@ Lien vers le cours : **[Google docs](https://docs.google.com/presentation/d/1TKl
 [Premières manipulations de PgAdmin4](/TP/SELECT/Mise%20en%20place.md)
 
 [TP - Requêtes de base](/TP/SELECT/Requetes%20de%20base.md)
+
+[TP - Jointures](/TP/JOIN/Jointures.md)
