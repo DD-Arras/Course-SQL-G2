@@ -95,12 +95,10 @@ WHERE ent.nom = 'General Electric'
 > Indication : Pour faciliter la lecture de la table de résultat, vous pouvez aussi donner un alias dans vos noms de colonnes.
 <details>
     <summary><i> Afficher un exemple de requête </i></summary>
-    <code>
-    SELECT ent.nom AS nom_entreprise, emp.nom AS nom_employe
+    <code>SELECT ent.nom AS nom_entreprise, emp.nom AS nom_employe
     FROM jointures.entreprises AS ent
     JOIN jointures.employes AS emp
-    ON ent.id = emp.entreprise_id
-    </code>
+    ON ent.id = emp.entreprise_id</code>
 </details>
 
 4) Ou se situe l'entreprise qui possède l'employé avec le meilleur salaire ?
