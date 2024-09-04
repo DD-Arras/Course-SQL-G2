@@ -20,7 +20,7 @@ CREATE TABLE jointures.employes (
     prenom varchar(100),
     nom varchar(100),
     salaire integer,
-    entreprise_id integer REFERENCES entreprises (id)
+    entreprise_id integer REFERENCES jointures.entreprises (id)
 );
 
 INSERT INTO jointures.entreprises (nom, ville)
