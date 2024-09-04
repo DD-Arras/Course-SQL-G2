@@ -1,9 +1,9 @@
-DROP TABLE IF EXISTS jointures.groupes;
-DROP TABLE IF EXISTS jointures.musiciens;
-DROP TABLE IF EXISTS jointures.albums;
-DROP TABLE IF EXISTS jointures.sons;
-DROP TABLE IF EXISTS jointures.instruments;
-DROP TABLE IF EXISTS jointures.link_musiciens_instruments;
+DROP TABLE IF EXISTS jointures.groupes CASCADE;
+DROP TABLE IF EXISTS jointures.musiciens CASCADE;
+DROP TABLE IF EXISTS jointures.albums CASCADE;
+DROP TABLE IF EXISTS jointures.sons CASCADE;
+DROP TABLE IF EXISTS jointures.instruments CASCADE;
+DROP TABLE IF EXISTS jointures.link_musiciens_instruments CASCADE;
 
 
 CREATE TABLE jointures.groupes (
