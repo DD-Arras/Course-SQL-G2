@@ -150,7 +150,9 @@ Formulez des requêtes SQL pour obtenir le résultat demandé.
 
 5) En utilisant la jointure appropriée, quel est le nom de l'album du titre `LUNCH` ?
 
-6) Quel label propose le son le plus long disponible sur la base de données ?
+6) Quels sont les titres des singles : les sons avec un nom identique à leur album ?
+
+7) Quel label propose le son le plus long disponible sur la base de données ?
 
 Pour associer chaque musicien a ses instruments, nous allons effectuer une double jointure. Essayez cette requête :
 
@@ -169,16 +171,16 @@ On peut ainsi cumuler le nombre de jointures, autant que nous en avons besoin.
 
 Formulez une requêtes pour las questions suivantes :
 
-7) Quels musiciens utilisent leur voix ?
+8) Quels musiciens utilisent leur voix ?
 
 Les requêtes suivantes utilisent plusieurs jointures pour aboutir... A vous de déterminer lesquelles.
 
-8) Quels groupes utilisent une batterie ?
+9) Quels groupes utilisent une batterie ?
 
-9) Quel groupe possède la chanson avec le moins de `streams` ?
+10) Quel groupe possède le son avec le plus de `streams` ?
 
-10) Quels sont les instruments utilisés par les compositeurs de chaque sons ? Affichez Le titre, le nom du compositeur, et ses instruments.
+11) Quels sont les instruments utilisés par les compositeurs de chaque sons ? Affichez Le titre, le nom du compositeur, et ses instruments.
 
-11) Quels sont les albums dans lequels il y a des paroles, et dont le groupe a été créé avant 2008 ?
+12) Quels sont les albums dans lequels il y a des paroles, et dont le groupe a été créé avant 2008 ?
 
-12) Pourquoi n'est il pas possible, avec vos connaissance actelles, de formuler une requête répondant à la question suivante : Quel est la chanson avec le plus de streams, parmis les chansons composées par le musicien le plus jeune ?
+13) Pourquoi n'est il pas possible, avec vos connaissance actelles, de formuler une requête répondant à la question suivante : Quel est la chanson avec le plus de streams, parmis les chansons composées par le musicien le plus jeune ?
