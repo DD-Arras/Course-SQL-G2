@@ -140,17 +140,47 @@ Formulez des requêtes SQL pour obtenir le résultat demandé.
 
 1) En réalisant une jointure entre `groupes` et `albums`, quel est le nom du groupe ayant fait l'album `For All The Dogs` ?
 
-2) Quand est-ce que le groupe `Animals as Leaders` a sorti des albums ?
+<!-- ```sql
+SELECT g.nom FROM jointures.groupes AS g
+JOIN jointures.albums AS a
+ON g.id = a.groupe_id
+WHERE a.nom = 'For All The Dogs'
+``` -->
 
-3) En faisant maintenant une jointure entre `groupes` et `musiciens`, quels sont les noms et prénoms des membres des groupe `GIMS` et `Billie Eilish` ?
+3) Quand est-ce que le groupe `Animals as Leaders` a sorti des albums ?
 
-4) En quelle année `Djuna` `Ghandi` a t-il commencé sa carrière ?
+<!-- ```sql
+SELECT a.sortie FROM jointures.groupes AS g
+JOIN jointures.albums AS a
+ON g.id = a.groupe_id
+WHERE g.nom = 'Animals as Leaders'
+``` -->
 
-5) En utilisant la jointure appropriée, quel est le nom de l'album du titre `LUNCH` ?
+4) En faisant maintenant une jointure entre `groupes` et `musiciens`, quels sont les noms et prénoms des membres des groupe `GIMS` et `Billie Eilish` ?
 
-6) Quels sont les titres des singles : les sons avec un nom identique à leur album ?
+<!-- ```sql
+SELECT a.sortie FROM jointures.groupes AS g
+JOIN jointures.musiciens AS m
+ON g.id = m.groupe_id
+WHERE g.nom = 'GIMS'
+OR g.nom = 'Billie Eilish'
+``` -->
 
-7) Quel label propose le son le plus long disponible sur la base de données ?
+5) En quelle année `Djuna` `Ghandi` a t-il commencé sa carrière ?
+
+<!-- ```sql
+SELECT g.date_creation FROM jointures.groupes AS g
+JOIN jointures.musiciens AS m
+ON g.id = m.groupe_id
+WHERE m.nom = 'Ghandi'
+AND m.prenom = 'Djuna'
+``` -->
+
+6) En utilisant la jointure appropriée, quel est le nom de l'album du titre `LUNCH` ?
+
+7) Quels sont les titres des singles : les sons avec un nom identique à leur album ?
+
+8) Quel label propose le son le plus long disponible sur la base de données ?
 
 Pour associer chaque musicien a ses instruments, nous allons effectuer une double jointure. Essayez cette requête :
 
