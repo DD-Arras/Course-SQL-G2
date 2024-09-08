@@ -12,6 +12,8 @@ En effet, une entreprise possède des salariés. On peut donc faire une jointure
 
 Cela va permettre d'obtenir les colonnes des entreprises et les colonnes des salariés dans **une même table**.
 
+<p style="color:yellow">On fait une jointure si on a besoin de colonnes de plusieurs tables.</p>
+
 ## Comment détecter l'existence d'une jointure
 
 ### Avec un diagramme UML
@@ -109,3 +111,38 @@ ON m.groupe_id = g.id
 <p style="color:red"> <b>La jointure est finie</b> </p>
 
 ## Comment utiliser une jointure
+
+Dans la partie `SELECT` de la requête, on met le nom des colonnes que l'on suouhaite récupérer.
+
+Attention à bien préciser l'*alias* de la table de chaque colonne.
+
+Si on souhaite obtenir la colonne `nom` de la table `groupes`, on obtient :
+
+```sql
+SELECT g.nom
+FROM jointure.groupes AS g
+JOIN jointures.musiciens AS m
+ON m.groupe_id = g.id
+```
+
+On peut aussi donner des *alias* aux colonnes dans le `SELECT`, pour pouvoir différencier des colonnes ayant le même libellé.
+
+Par exemple, on donne `nom_de_groupe` et `nom_du_musicien` commes *alias*.
+
+```sql
+SELECT g.nom AS nom_de_groupe, m.nom AS nom_du_musicien
+FROM jointure.groupes AS g
+JOIN jointures.musiciens AS m
+ON m.groupe_id = g.id
+```
+
+De la même manière, si on souhaite utiliser un filtre `WHERE`, on utilise toujours les *alias*
+
+```sql
+SELECT g.nom AS nom_de_groupe, m.nom AS nom_du_musicien
+FROM jointure.groupes AS g
+JOIN jointures.musiciens AS m
+ON m.groupe_id = g.id
+WHERE g.date_creation < '2008-01-01'
+```
+On sélectionne ici le nom des groupes, et les noms des musiciens, dans les groupes ayant été crées avant 2008.
