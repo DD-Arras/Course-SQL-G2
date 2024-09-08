@@ -5,18 +5,20 @@ DROP TABLE IF EXISTS cinema.realisateurs CASCADE;
 DROP TABLE IF EXISTS cinema.acteurs CASCADE;
 DROP TABLE IF EXISTS cinema.casting CASCADE;
 
-CREATE TABLE cinema.films (
-    film_id INT PRIMARY KEY,
-    titre VARCHAR(100),
-    genre VARCHAR(50),
-    date_sortie DATE
-);
-
 CREATE TABLE cinema.realisateurs (
     realisateur_id INT PRIMARY KEY,
     nom VARCHAR(100),
     prenom VARCHAR(100),
     nationalite VARCHAR(50)
+);
+
+CREATE TABLE cinema.films (
+    film_id INT PRIMARY KEY,
+    realisateur_id INT,
+    titre VARCHAR(100),
+    genre VARCHAR(50),
+    date_sortie DATE,
+    FOREIGN KEY (realisateur_id) REFERENCES cinema.realisateurs(realisateur_id)
 );
 
 CREATE TABLE cinema.acteurs (
@@ -35,21 +37,6 @@ CREATE TABLE cinema.casting (
     FOREIGN KEY (acteur_id) REFERENCES cinema.acteurs(acteur_id)
 );
 
-INSERT INTO cinema.films (film_id, titre, genre, date_sortie) VALUES
-(1, 'Inception', 'Science Fiction', '2010-07-16'),
-(2, 'The Dark Knight', 'Action', '2008-07-18'),
-(3, 'Interstellar', 'Science Fiction', '2014-11-07'),
-(4, 'Django Unchained', 'Western', '2012-12-25'),
-(5, 'Pulp Fiction', 'Crime', '1994-10-14'),
-(6, 'La La Land', 'Comédie musicale', '2016-12-09'),
-(7, 'Gladiator', 'Historique', '2000-05-05'),
-(8, 'Titanic', 'Romance', '1997-12-19'),
-(9, 'The Matrix', 'Science Fiction', '1999-03-31'),
-(10, 'The Revenant', 'Aventure', '2015-12-25'),
-(11, 'Fight Club', 'Drame', '1999-10-15'),
-(12, 'The Wolf of Wall Street', 'Biographie', '2013-12-25'),
-(13, 'Once Upon a Time in Hollywood', 'Comédie dramatique', '2019-07-26');
-
 INSERT INTO cinema.realisateurs (realisateur_id, nom, prenom, nationalite) VALUES
 (1, 'Nolan', 'Christopher', 'Britannique'),
 (2, 'Tarantino', 'Quentin', 'Américain'),
@@ -57,7 +44,24 @@ INSERT INTO cinema.realisateurs (realisateur_id, nom, prenom, nationalite) VALUE
 (4, 'Scott', 'Ridley', 'Britannique'),
 (5, 'Cameron', 'James', 'Canadien'),
 (6, 'Wachowski', 'Lana', 'Américaine'),
-(7, 'Iñárritu', 'Alejandro', 'Mexicain');
+(7, 'Iñárritu', 'Alejandro', 'Mexicain'),
+(8, 'Fincher', 'David', 'Américain'),
+(9, 'Scorsese', 'Martin', 'Américain, Italien');
+
+INSERT INTO cinema.films (film_id, titre, genre, date_sortie, realisateur_id) VALUES
+(1, 'Inception', 'Science Fiction', '2010-07-16', 1),
+(2, 'The Dark Knight', 'Action', '2008-07-18', 1),
+(3, 'Interstellar', 'Science Fiction', '2014-11-07', 1),
+(4, 'Django Unchained', 'Western', '2012-12-25', 2),
+(5, 'Pulp Fiction', 'Crime', '1994-10-14', 2),
+(6, 'La La Land', 'Comédie musicale', '2016-12-09', 3),
+(7, 'Gladiator', 'Historique', '2000-05-05', 4),
+(8, 'Titanic', 'Romance', '1997-12-19', 5),
+(9, 'The Matrix', 'Science Fiction', '1999-03-31', 6),
+(10, 'The Revenant', 'Aventure', '2015-12-25', 7),
+(11, 'Fight Club', 'Drame', '1999-10-15', 8),
+(12, 'The Wolf of Wall Street', 'Biographie', '2013-12-25', 9),
+(13, 'Once Upon a Time in Hollywood', 'Comédie dramatique', '2019-07-26', 2);
 
 INSERT INTO cinema.acteurs (acteur_id, nom, prenom, date_naissance) VALUES
 (1, 'DiCaprio', 'Leonardo', '1974-11-11'),
