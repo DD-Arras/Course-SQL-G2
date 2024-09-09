@@ -38,14 +38,14 @@ Table affectations
 
 ```sql
 SELECT e.nom AS nom,
-    t.nom AS tache
+    t.nom AS tache,
     a.heures_travaillees
 FROM affectations AS a
 JOIN employes AS e
-ON a.employe_id = e.id
+ON a.employe_id = e.employe_id
 JOIN taches AS t
-ON a.tache_id = t.id
-WHERE a.heures travaillees < 150
+ON a.tache_id = t.tache_id
+WHERE a.heures_travaillees < 150
 ```
 
 5) Formulez une requête donnant tous les noms des tâches pour le client 'Client A'.
