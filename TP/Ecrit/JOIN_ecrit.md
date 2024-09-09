@@ -38,7 +38,7 @@ Table affectations
 
 ```sql
 SELECT e.nom AS nom,
-    t.nom AS tache,
+    t.nom_tache AS tache,
     a.heures_travaillees
 FROM affectations AS a
 JOIN employes AS e
