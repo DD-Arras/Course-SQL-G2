@@ -34,7 +34,7 @@ Table affectations
 
 3) Formulez une requête donnant tous les projets en cours à la date du 8 Janvier 2024.
 
-4) Quelle est la table résultante de la requête suivante, avec les connaissances que vous avez sur les tables :
+4) Dessiner la table résultante de la requête suivante, avec les connaissances que vous avez sur les tables :
 
 ```sql
 SELECT e.nom AS nom,
