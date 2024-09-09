@@ -4,7 +4,7 @@ Le but de ce TP est d'utiliser d'autres outils de SQL, qui sont moins importants
 
 ## Mise en place des ressources du TP
 
-Importez ce fichier sql : [cinema.sql](/TP/LIKE/data/cinema.sql.
+Importez ce fichier sql : [cinema.sql](/TP/LIKE/data/cinema.sql).
 
 Voici le schéma UML simbolisant ces tables :
 
