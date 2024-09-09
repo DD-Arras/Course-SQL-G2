@@ -50,7 +50,7 @@ WHERE a.heures travaillees < 150
 
 5) Formulez une requête donnant tous les noms des tâches pour le client 'Client A'.
 
-6) Formulez une requête donnant la dernière tâche fini sur le projet 'Pont suspendu'.
+6) Formulez une requête donnant la dernière tâche finie sur le projet 'Pont suspendu'.
 
 7) Formulez une requête donnant la date d'embauche de l'employé qui a le moins travaillé.
 
@@ -71,7 +71,7 @@ WHERE a.heures travaillees < 150
 
 13) Quelle est la relation entre les tables employes et taches ?
 
-14) Pourrait-on calculer le nombre d'heures travaillées par un employé ?
+14) Pourrait-on calculer le nombre d'heures travaillées par employé ?
 
 ## Vérification
 
