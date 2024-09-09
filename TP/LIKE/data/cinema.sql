@@ -79,7 +79,7 @@ INSERT INTO cinema.acteurs (acteur_id, nom, prenom, date_naissance) VALUES
 
 INSERT INTO cinema.casting (casting_id, film_id, acteur_id, role) VALUES
 (1, 1, 1, 'Dom Cobb'),
-(2, 2, 2, 'Bruce Wayne / Batman'),
+(2, 2, 2, 'Bruce Wayne _ Batman'),
 (3, 3, 1, 'Cooper'),
 (4, 4, 3, 'Calvin Candie'),
 (5, 4, 4, 'Django'),
