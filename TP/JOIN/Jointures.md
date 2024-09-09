@@ -147,7 +147,7 @@ ON g.id = a.groupe_id
 WHERE a.nom = 'For All The Dogs'
 ``` 
 
-3) Quand est-ce que le groupe `Animals as Leaders` a sorti des albums ?
+2) Quand est-ce que le groupe `Animals as Leaders` a sorti des albums ?
 
 ```sql
 SELECT a.sortie FROM jointures.groupes AS g
@@ -156,7 +156,7 @@ ON g.id = a.groupe_id
 WHERE g.nom = 'Animals as Leaders'
 ``` 
 
-4) En faisant maintenant une jointure entre `groupes` et `musiciens`, quels sont les noms et prénoms des membres des groupe `GIMS` et `Billie Eilish` ?
+3) En faisant maintenant une jointure entre `groupes` et `musiciens`, quels sont les noms et prénoms des membres des groupe `GIMS` et `Billie Eilish` ?
 
 ```sql
 SELECT a.sortie FROM jointures.groupes AS g
@@ -166,7 +166,7 @@ WHERE g.nom = 'GIMS'
 OR g.nom = 'Billie Eilish'
 ``` 
 
-5) En quelle année `Djuna` `Ghandi` a t-il commencé sa carrière ?
+4) En quelle année `Djuna` `Ghandi` a t-il commencé sa carrière ?
 
 ```sql
 SELECT g.date_creation FROM jointures.groupes AS g
@@ -176,7 +176,7 @@ WHERE m.nom = 'Ghandi'
 AND m.prenom = 'Djuna'
 ``` 
 
-6) En utilisant la jointure appropriée, quel est le nom de l'album du titre `LUNCH` ?
+5) En utilisant la jointure appropriée, quel est le nom de l'album du titre `LUNCH` ?
 
 ```sql
 SELECT a.nom FROM jointures.albums AS a
@@ -185,7 +185,7 @@ ON a.id = s.album_id
 WHERE s.nom = 'LUNCH'
 ```
 
-8) Quels sont les titres des singles : les sons avec un nom identique à leur album ?
+6) Quels sont les titres des singles : les sons avec un nom identique à leur album ?
 
 ```sql
 SELECT s.nom FROM jointures.albums AS a
@@ -194,7 +194,7 @@ ON a.id = s.album_id
 WHERE s.nom = a.nom
 ```
 
-9) Quel label propose le son le plus long disponible sur la base de données ?
+7) Quel label propose le son le plus long disponible sur la base de données ?
 
 ```sql
 SELECT a.label FROM jointures.albums AS a
