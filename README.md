@@ -9,3 +9,7 @@ Lien vers le cours : **[Google docs](https://docs.google.com/presentation/d/1TKl
 [TP - Requêtes de base](/TP/SELECT/Requetes%20de%20base.md)
 
 [TP - Jointures](/TP/JOIN/Jointures.md) - [Aide aux jointures](/TP/JOIN/AideJointures.md)
+
+[TP - LIKE](/TP/LIKE/LIKE.md)
+
+[TP - Ecrit](/TP/Ecrit/JOIN_ecrit.md)
