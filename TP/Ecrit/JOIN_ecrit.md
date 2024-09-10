@@ -31,6 +31,7 @@ Table affectations
 1) Formulez une requête donnant les noms et prénoms des employés au poste de 'Chef de chantier'.
 
 2) Formulez une requête donnant toutes les taches finies le 15 Fevrier 2022.
+>(OLD) 2) Formulez une requête donnant toutes les taches associées au 'Client B'.
 
 3) Formulez une requête donnant tous les projets en cours à la date du 8 Janvier 2024.
 
