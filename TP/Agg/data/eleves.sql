@@ -1,5 +1,0 @@
-CREATE SCHEMA IF NOT EXISTS public;
-
-DROP TABLE IF EXISTS eleves CASCADE;
-
-CREATE TABLE public.eleves (

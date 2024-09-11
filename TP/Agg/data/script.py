@@ -15,11 +15,34 @@ def to_sql(df_array, names_array, file_name, schema='public'):
     with open(f'./{file_name}.sql', 'w') as file:
         file.write(f'CREATE SCHEMA IF NOT EXISTS {schema};\n\n')
         file.writelines([f'DROP TABLE IF EXISTS {name} CASCADE;\n' for name in names_array])
-        file.write('\n')
+        file.write('\n\n')
+        # Creation des tables
         for i in range(len(names_array)):
+            df = df_array[i]
             file.write(f'CREATE TABLE {schema}.{names_array[i]} (\n')
+            for column in df.iloc[:,0:-1].columns:
+                columntype = df.dtypes.replace(type_translation)[column]
+                file.write(f'\t{column} {columntype},\n')
+            last_column = df.columns[-1]
+            last_columntype = df.dtypes.replace(type_translation)[last_column]
+            file.write(f'\t{last_column} {last_columntype}\n);\n\n')
+        file.write('\n')
+        # Insertion dans les tables
+        for i in range(len(names_array)):
+            df = df_array[i]
+            file.write(f'INSERT INTO {schema}.{names_array[i]} VALUES\n')
+            ar = df.values
+            for line in ar[0:-1]:
+                file.write('\t(')
+                for v in line[0:-1]:
+                    file.write(f"'{v}', ")
+                file.write(f"'{line[-1]}'),\n")
+            file.write('\t(')
+            for v in ar[-1][0:-1]:
+                    file.write(f"'{v}', ")
+            file.write(f"'{ar[-1][-1]}');\n\n")
 
-            colomn type = df.replace(type_translation)
+
 
 
 prenomsDF = pd.read_csv('./prenoms.csv')['prenom']
@@ -36,13 +59,12 @@ elevesDF['histoire'] = np.random.uniform(0, 20, size=150)
 elevesDF['moyenne'] = (elevesDF['maths']
                        + elevesDF['francais']
                          + elevesDF['histoire']) / 3
-to_sql([elevesDF], ['eleves'], 'eleves')
 
 classesDF = pd.DataFrame()
 classesDF['id'] = [i for i in range(1, 6)]
 classesDF['nom'] = ['CP', 'CE1', 'CE2', 'CM1', 'CM2']
 
-
+to_sql([elevesDF, classesDF], ['eleves', 'classes'], 'ecole', 'ecole')
 
 clientsDF = pd.DataFrame()
 clientsDF['id'] = [i for i in range(1, 201)]
@@ -60,5 +82,4 @@ achatsDF['client_id'] = np.random.randint(1, 201, size=1000)
 achatsDF['vendeur_id'] = np.random.randint(1, 9, size=1000)
 achatsDF['prix'] = np.random.randint(1, 200, size=1000)
 
-
-
+to_sql([clientsDF, vendeursDF, achatsDF], ['clients', 'vendeurs', 'achats'], 'eshop', 'eshop')
