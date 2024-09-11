@@ -1,7 +1,5 @@
 # TP - Jointures
 
-<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-
 Le but de ce TP est de comprendre les jointures. Leurs interêts et comment les implémenter.
 
 On commence à associer plusieurs tables.
@@ -67,18 +65,15 @@ ON jointures.entreprises.id = jointures.employes.entreprise_id
 
 1) Essayez d'utiliser la diapositive 29 du [cours](https://docs.google.com/presentation/d/1TKlmLLidOdDczgt6kVVT4sk8SPTT3wJeAhqYRh8FDHs/edit?usp=sharing) pour sélectionner le nom de chaque employé, et le nom de l'entreprise à laquelle il appartient.
 
-<details>
-    <summary> Solution </summary>
-<pre class="prettyprint">
+```sql
 SELECT ent.nom, emp.nom FROM jointures.entreprises AS ent
 JOIN jointures.employes AS emp
 ON ent.id = emp.entreprise_id
-</pre>
-</details>
+``` 
 
 Pour les questions suivantes, Formulez des requêtes SQL pour obtenir le résultat demandé.
 
-1) Quel est le nom de l'entreprise de `Nancy` `Jones` ?
+2) Quel est le nom de l'entreprise de `Nancy` `Jones` ?
 
 ```sql
 SELECT ent.nom, FROM jointures.entreprises AS ent
