@@ -3,11 +3,19 @@ from util import *
 prenomsDF = pd.read_csv(os.path.join(dir, './data/prenoms.csv'))['prenom']
 nomsDF = pd.read_csv(os.path.join(dir, './data/noms.csv'))['nom']
 
-elevesDF = pd.DataFrame()
-elevesDF['id'] = [i for i in range(1, 151)]
-elevesDF['prenom'] = prenomsDF.sample(150, ignore_index=True)
-elevesDF['nom'] = nomsDF.sample(150, ignore_index=True)
-elevesDF['classe_id'] = np.random.randint(1, 6, size=150)
+projetsDF = pd.DataFrame()
+projetsDF['id'] = [i for i in range(1, 11)]
+projetsDF['nom'] = ['Cartographie Sud-Ouest', 'Mesure du Bois de Vincennes'
+       'Projet Topographique Littoral', 'Étude des Rivières du Nord'
+       'Relevé Urbain Grand Est', 'Projet Altimétrique Montagne'
+       'Carto Village 13', 'Planification Zonage 44'
+       'Étude des Bassins Versants', 'Relevé Cadastral Métropole'
+]
+projetsDF['surface'] = [156000, 0.994, 551695, 12414, 57441,
+                        551695, 5087, 6815, 551695, 551695]
+
+###################
+
 elevesDF['maths'] = np.random.uniform(5, 20, size=150) - elevesDF['classe_id']
 elevesDF['francais'] = np.random.uniform(0, 15, size=150) + elevesDF['classe_id']
 elevesDF['histoire'] = np.random.uniform(0, 16, size=150) + (elevesDF['classe_id'] - 3)**2
