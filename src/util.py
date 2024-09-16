@@ -43,3 +43,5 @@ def to_sql(df_array, names_array, path, schema='public'):
             for v in ar[-1][0:-1]:
                     file.write(f"'{v}', ")
             file.write(f"'{ar[-1][-1]}');\n\n")
+        ## Correct some floats casted as ints
+        file.replace('.0', '')

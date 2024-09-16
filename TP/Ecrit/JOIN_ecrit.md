@@ -6,7 +6,7 @@ De plus, cela permet de se heureter à la nouvelle dynamique de faire des requê
 
 ## Présentation du schéma
 
-Voici le schéma du schéma, ainsi que les premières lignes de chaque table.
+Voici le schéma des tables, ainsi que les premières lignes de chaque table.
 
 ![construction_chart](/TP/Ecrit/images/construction_chart.png)
 
