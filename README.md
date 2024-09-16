@@ -13,3 +13,5 @@ Lien vers le cours : **[Google docs](https://docs.google.com/presentation/d/1TKl
 [TP - LIKE](/TP/LIKE/LIKE.md)
 
 [TP - Ecrit](/TP/Ecrit/JOIN_ecrit.md)
+
+[TP - Fonctions d'Agrégation](/TP/Agg/Agregation.md)
