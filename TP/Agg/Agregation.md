@@ -36,7 +36,7 @@ Formulez des requêtes SQL qui correspondent aux questions.
 
 ## Schéma `eshop`
 
-Importez le schéma suivant : [ecole.sql](./data/eshop.sql).
+Importez le schéma suivant : [eshop.sql](./data/eshop.sql).
 
 La table `achats` est une table de liaison entre les tables `clients` et `vendeurs`, qui ont une relation ManyToMany.
 
