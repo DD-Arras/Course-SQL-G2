@@ -8,7 +8,7 @@ Importez le schéma suivant : [ecole.sql](./data/ecole.sql).
 
 Il comportes deux tables : `classes` et `eleves`, qui sont joins par une relation OneToMany.
 
-Observez pendant quelques instants les tables et leur structure.
+Observez pendant quelques instants les tables et leurs structures.
 
 >Les données de ses tables ont été générés aléatoirement par [script agg](../../src/agg.py), aucune donnée ne référence quelconque personne réelle.
 
@@ -20,7 +20,7 @@ Formulez des requêtes SQL qui correspondent aux questions.
 
 2) Quels sont les élèves en CP ?
 
-3) Donnez deux requêtes différentes pour la question suivante : Quel est l'élève avec la plus haute note de francais ?
+3) Donnez deux requêtes différentes pour la question suivante : Quel est la plus haute note de francais ?
 
 4) Pour chaque classe, donnez le nombre d'élèves.
 
