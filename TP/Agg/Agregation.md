@@ -26,7 +26,7 @@ Formulez des requêtes SQL qui correspondent aux questions.
 
 5) Comment la colonne `moyenne` a-t-elle été calculée ? Formulez une requête qui calcule la moyenne de chaque élève, sans utiliser la colonne `moyene`.
 
-6) Quelle est la note la plus faible d'histoire dans la classe des CE2 ? Plusieurs méthodes sont possibles.
+6) Quelle est la note d'histoire la plus faible dans la classe des CE2 ? Plusieurs méthodes sont possibles.
 
 7) Ordonnez les classes, en mettant les classes avec les moyennes en français les plus basses, en haut.
 
@@ -62,5 +62,6 @@ Formulez des requêtes SQL qui correspondent aux questions.
 7) Quels sont les sites sur lesquels de nombreuses (8 ou plus) petites transactions (moins de 10 euros) on été faites ?
 
 8) Combien de personnes différentes ont acheté sur Amazon ou Aliexpress ?
+<!-- a modifier --> 
 
 9) En ne prenant en compte que les sites avec un grand nombre de ventes (plus de 90) sur les grandes transactions (plus de 50 euros), quels sont les trois sites ayant fait les plus gros chiffres d'affaire sur ces transactions ?
