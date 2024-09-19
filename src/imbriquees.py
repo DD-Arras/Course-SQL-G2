@@ -1,50 +1,47 @@
 from util import *
 
-prenomsDF = pd.read_csv(os.path.join(dir, './data/prenoms.csv'))['prenom']
-nomsDF = pd.read_csv(os.path.join(dir, './data/noms.csv'))['nom']
+prenomsDF: pd.DataFrame = pd.read_csv(os.path.join(dir, './data/prenoms.csv'))['prenom']
+nomsDF: pd.DataFrame = pd.read_csv(os.path.join(dir, './data/noms.csv'))['nom']
 
-projetsDF = pd.DataFrame()
-projetsDF['id'] = [i for i in range(1, 11)]
-projetsDF['nom'] = ['Cartographie Sud-Ouest', 'Mesure du Bois de Vincennes'
-       'Projet Topographique Littoral', 'Étude des Rivières du Nord'
-       'Relevé Urbain Grand Est', 'Projet Altimétrique Montagne'
-       'Carto Village 13', 'Planification Zonage 44'
-       'Étude des Bassins Versants', 'Relevé Cadastral Métropole'
-]
-projetsDF['surface'] = [156000, 0.994, 551695, 12414, 57441,
-                        551695, 5087, 6815, 551695, 551695]
+countriesDF: gpd.GeoDataFrame = gpd.read_file(os.path.join(dir, './data/countries.csv'))
 
-###################
+countriesDF['id'] = pd.to_numeric(countriesDF['id'])
+countriesDF['longitude'] = pd.to_numeric(countriesDF['longitude'])
+countriesDF['latitude'] = pd.to_numeric(countriesDF['latitude'])
 
-elevesDF['maths'] = np.random.uniform(5, 20, size=150) - elevesDF['classe_id']
-elevesDF['francais'] = np.random.uniform(0, 15, size=150) + elevesDF['classe_id']
-elevesDF['histoire'] = np.random.uniform(0, 16, size=150) + (elevesDF['classe_id'] - 3)**2
-elevesDF['moyenne'] = (elevesDF['maths']
-                       + elevesDF['francais']
-                         + elevesDF['histoire']) / 3
+countriesGeom = gpd.points_from_xy(
+    x=countriesDF["longitude"],
+    y=countriesDF["latitude"],
+    crs="EPSG:4326"
+)
 
-classesDF = pd.DataFrame()
-classesDF['id'] = [i for i in range(1, 6)]
-classesDF['nom'] = ['CP', 'CE1', 'CE2', 'CM1', 'CM2']
+citiesDF: gpd.GeoDataFrame = gpd.read_file(os.path.join(dir, './data/worldcities.csv'))
 
-to_sql([elevesDF, classesDF], ['eleves', 'classes'],
-       os.path.join(dir, '../TP/Agg/data/ecole.sql'), 'ecole')
+citiesDF['id'] = citiesDF.index + 1
+citiesDF['longitude'] = pd.to_numeric(citiesDF['lng'])
+citiesDF['latitude'] = pd.to_numeric(citiesDF['lat'])
+citiesDF['population'] = pd.to_numeric(citiesDF['population'])
+citiesDF['population'] = citiesDF['population'].fillna(0.0).astype('int64')
 
-clientsDF = pd.DataFrame()
-clientsDF['id'] = [i for i in range(1, 201)]
-clientsDF['prenom'] = prenomsDF.sample(200, ignore_index=True)
-clientsDF['nom'] = nomsDF.sample(200, ignore_index=True)
+citiesGeom = gpd.points_from_xy(
+    x=citiesDF["longitude"],
+    y=citiesDF["latitude"],
+    crs="EPSG:4326"
+)
+citiesDF['pays_id'] = citiesDF.merge(countriesDF, left_on="iso2", right_on="code")["id_y"]
 
-vendeursDF = pd.DataFrame()
-vendeursDF['id'] = [i for i in range(1, 9)]
-vendeursDF['nom'] = ['Amazon', 'Leboncoin', 'Cdiscount', 'eBay',
-        'Leroy Merlin', 'Fnac', 'Aliexpress', 'Microsoft']
+citiesDF.drop(columns=['city_ascii', 'lat', 'lng', 'country'], inplace=True)
 
-achatsDF = pd.DataFrame()
-achatsDF['id'] = [i for i in range(1, 1001)]
-achatsDF['client_id'] = np.random.randint(1, 201, size=1000)
-achatsDF['vendeur_id'] = np.random.randint(1, 9, size=1000)
-achatsDF['prix'] = np.random.randint(1, 200, size=1000) * (12+achatsDF['vendeur_id']) / 20
+capitalsDF = citiesDF[citiesDF['capital'] == 'primary']
 
-to_sql([clientsDF, vendeursDF, achatsDF], ['clients', 'vendeurs', 'achats'],
-       os.path.join(dir, '../TP/Agg/data/eshop.sql'), 'eshop')
+travelsDF = pd.DataFrame()
+travelsSize = 10000
+travelsDF['id'] = range(1, travelsSize+1)
+travelsDF['prenom'] = prenomsDF.sample(travelsSize, ignore_index=True, replace=True)
+travelsDF['nom'] = nomsDF.sample(travelsSize, ignore_index=True, replace=True)
+travelsDF['ville_depart'] = capitalsDF["id"].sample(travelsSize, ignore_index=True, replace=True)
+travelsDF['ville_arrivee'] = capitalsDF["id"].sample(travelsSize, ignore_index=True, replace=True)
+travelsDF['prix'] = np.random.randint(100, 200, size=travelsSize) * (travelsDF["ville_depart"]+50000) / 100000
+
+to_sql([countriesDF, citiesDF, travelsDF], ['pays', 'villes', 'voyages'],
+       os.path.join(dir, '../TP/Imbriquees/data/monde.sql'), schema='monde')

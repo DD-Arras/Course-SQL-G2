@@ -1,6 +1,8 @@
 import pandas as pd
+import geopandas as gpd
 import numpy as np
 import os
+import re
 
 dir = os.path.dirname(__file__)
 
@@ -16,7 +18,7 @@ def to_sql(df_array, names_array, path, schema='public'):
         raise Exception('Length of df_array does not match length of names_array')
     with open(path, 'w') as file:
         file.write(f'CREATE SCHEMA IF NOT EXISTS {schema};\n\n')
-        file.writelines([f'DROP TABLE IF EXISTS {name} CASCADE;\n' for name in names_array])
+        file.writelines([f'DROP TABLE IF EXISTS {schema}.{name} CASCADE;\n' for name in names_array])
         file.write('\n\n')
         # Creation des tables
         for i in range(len(names_array)):
@@ -43,5 +45,11 @@ def to_sql(df_array, names_array, path, schema='public'):
             for v in ar[-1][0:-1]:
                     file.write(f"'{v}', ")
             file.write(f"'{ar[-1][-1]}');\n\n")
-        ## Correct some floats casted as ints
-        file.replace('.0', '')
+    ## Correct some floats casted as ints
+    with open(path, 'r') as file:
+        filedata = file.read()
+
+    filedata = re.sub("\.0*'", "'", filedata)
+
+    with open(path, 'w') as file:
+        file.write(filedata)

@@ -3,7 +3,7 @@ from util import *
 prenomsDF = pd.read_csv(os.path.join(dir, './data/prenoms.csv'))['prenom']
 nomsDF = pd.read_csv(os.path.join(dir, './data/noms.csv'))['nom']
 
-elevesDF = pd.DataFrame()
+elevesDF = pd.GeoDataFrame()
 elevesDF['id'] = [i for i in range(1, 151)]
 elevesDF['prenom'] = prenomsDF.sample(150, ignore_index=True)
 elevesDF['nom'] = nomsDF.sample(150, ignore_index=True)
@@ -15,24 +15,24 @@ elevesDF['moyenne'] = (elevesDF['maths']
                        + elevesDF['francais']
                          + elevesDF['histoire']) / 3
 
-classesDF = pd.DataFrame()
+classesDF = pd.GeoDataFrame()
 classesDF['id'] = [i for i in range(1, 6)]
 classesDF['nom'] = ['CP', 'CE1', 'CE2', 'CM1', 'CM2']
 
 to_sql([elevesDF, classesDF], ['eleves', 'classes'],
        os.path.join(dir, '../TP/Agg/data/ecole.sql'), 'ecole')
 
-clientsDF = pd.DataFrame()
+clientsDF = pd.GeoDataFrame()
 clientsDF['id'] = [i for i in range(1, 201)]
 clientsDF['prenom'] = prenomsDF.sample(200, ignore_index=True)
 clientsDF['nom'] = nomsDF.sample(200, ignore_index=True)
 
-vendeursDF = pd.DataFrame()
+vendeursDF = pd.GeoDataFrame()
 vendeursDF['id'] = [i for i in range(1, 9)]
 vendeursDF['nom'] = ['Amazon', 'Leboncoin', 'Cdiscount', 'eBay',
         'Leroy Merlin', 'Fnac', 'Aliexpress', 'Microsoft']
 
-achatsDF = pd.DataFrame()
+achatsDF = pd.GeoDataFrame()
 achatsDF['id'] = [i for i in range(1, 1001)]
 achatsDF['client_id'] = np.random.randint(1, 201, size=1000)
 achatsDF['vendeur_id'] = np.random.randint(1, 9, size=1000)
