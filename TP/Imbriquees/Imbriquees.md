@@ -20,7 +20,8 @@ Il comporte trois tables : une table des pays, une table de villes, et et une ta
 
 5) Ordonnez les familles (nom de famille identiques) en mettant en avant celles qui ont le plus dépensé dans des voyages.
 
-6) Trouvez les familles qui ont dépensé plus d'argent que la moyenne dans des voyages.
+6) Trouvez les familles qui ont dépensé dans au moins un voyage, un montant plus grand que la moyenne des voyages.
+>OLD : Trouvez les familles qui ont dépensé plus d'argent que la moyenne dans des voyages.
 
 7) Quelles sont les villes qui sont plus habitées que la capitale de leur pays ?
 
