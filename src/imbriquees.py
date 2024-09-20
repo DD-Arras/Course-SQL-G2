@@ -45,3 +45,6 @@ travelsDF['prix'] = np.random.randint(100, 200, size=travelsSize) * (travelsDF["
 
 to_sql([countriesDF, citiesDF, travelsDF], ['pays', 'villes', 'voyages'],
        os.path.join(dir, '../TP/Imbriquees/data/monde.sql'), schema='monde')
+
+a modifier pour n' avoir quune capitale par pays
++ question 2 orienter sur capitales
