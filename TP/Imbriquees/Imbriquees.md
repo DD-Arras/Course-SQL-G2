@@ -46,3 +46,5 @@ A la place, nous allons considérer que 1 degré en longitude = 1 degré en lati
 14) FQuelle est la médiane, et la moyenne, de la population des villes ?
 
 15) Quelle est la vill ela plus éloignée de toute capitale ? 
+
+16) Trouvez les familles qui ont dépensé plus d'argent que la moyenne dans des voyages.
