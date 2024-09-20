@@ -1,16 +1,18 @@
 # TP - Fonctions imbriquées
 
-Le but de ce TP est d'utiliser les fonctions imbriquées, dans une table de plus en plus imposante.
+Le but de ce TP est d'utiliser les fonctions imbriquées, dans une table plus imposante.
 
 ## Mise en place des ressources du TP
 
-Importez ce fichier sql : [cinema.sql](/TP/Imbriquees/data/monde.sql).
+Importez ce fichier sql : [monde.sql](/TP/Imbriquees/data/monde.sql).
 
 Il comporte trois tables : une table des pays, une table de villes, et et une table de voyages.
 
 1) Observez les tables et dessinez un schéma UML qui décrit le schéma `monde`. Les jointures doivent apparaitre.
 
 2) La structure du schéma aurait pu être amélioré, en effet, il manque une jointure... Proposez une jointure qui n'est pas présente actuellement, qui aurait pu être intéressante.
+
+## Questions
 
 3) Quelle est la ville avec le plus d'habitants ?
 
@@ -32,10 +34,14 @@ A la place, nous allons considérer que 1 degré en longitude = 1 degré en lati
 
 9) Quelles villes sont proches (moins de 200km) d'une capitale ?
 
-10) Quelle est la famille qui paie le plus cher, en moyenne, pour faire un voyage vers une ville avec un nombre d'habitants supérieur à la moyenne.
+10) Quelle est la famille qui paie le plus cher, en moyenne, pour faire un voyage vers une ville avec un nombre d'habitants supérieur à la moyenne ?
 
-11) Quelle est la ville vers laquelle les voyages sont les plus rentables en moyenne : des voyages très longs, pour pas cher.
+11) Quelle est la ville vers laquelle les voyages sont les plus rentables en moyenne : des voyages très longs, pour pas cher ?
 
 12) Quelle partie du monde, Est ou Ouest (longitude positive ou négative), y a t'il le moins d'ecart type pour acheter des tickets ?
 
-13) Existe t-il des allers-retours : des paires de voyages avec des villes d'arrivée et de départ inversées.
+13) Existe t-il des allers-retours : des paires de voyages avec des villes d'arrivée et de départ inversées ?
+
+14) FQuelle est la médiane, et la moyenne, de la population des villes ?
+
+15) Quelle est la vill ela plus éloignée de toute capitale ? 
