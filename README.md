@@ -17,3 +17,5 @@ Lien vers le cours : **[Google docs](https://docs.google.com/presentation/d/1TKl
 [TP - Fonctions d'Agrégation](/TP/Agg/Agregation.md)
 
 [TP - Requêtes Imbriquées](/TP/Imbriquees/Imbriquees.md)
+
+[TP - Préparation](/TP/Preparation/Preparation.md)
