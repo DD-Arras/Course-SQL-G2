@@ -115,4 +115,4 @@ SELECT AVG(salaire) FROM (
 
 > Indications : x, y sont en mètres.
 
-> Rappel : $$ dist = \sqrt((x_{A}-x_{B})^2+(y_{A}-y_{B})^2 $$
+> Rappel : $ dist = \sqrt{(x_{A}-x_{B})^2+(y_{A}-y_{B})^2} $
