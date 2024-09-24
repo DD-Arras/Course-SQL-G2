@@ -145,7 +145,7 @@ WHERE i.precision < 0.001
 AND sqrt(power(x, 2) + power(y, 2)) > 10
 ``` -->
 
-12) Qui est le modèle (pas l'instrument) qui réalise le plus d'acquisitions qui sont plus éloignées de (0, 0) que la moyenne des acquisitions. **\#\#\#**
+12) Quel est le modèle (pas l'instrument) qui réalise le plus d'acquisitions qui sont plus éloignées de (0, 0) que la moyenne des acquisitions. **\#\#\#**
 
 <!-- ```sql
 SELECT i.modele, COUNT(*)
