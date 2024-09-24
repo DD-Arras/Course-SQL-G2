@@ -111,8 +111,76 @@ SELECT AVG(salaire) FROM (
 )
 ``` -->
 
-9) Quelles sont les acquisitions éloignées de plus de 10m de l'origine ? **\#**
+9) Ordonnez les modèles d'instruments, en fonction de leur prix moyen. **\#**
+
+<!-- ```sql
+SELECT modele, AVG(prix)
+FROM instruments
+GROUP BY modele
+ORDER BY AVG(prix) ASC
+``` -->
+
+10) Quel est le nombre d'acquisitions faites avant le 8 Septembre 2020 ? **\#**
+
+<!-- ```sql
+SELECT COUNT(*)
+FROM acquisitions
+WHERE date_acquisition < '2020-09-08'
+``` -->
+
+11) Quelles sont les acquisitions réalisées par un appareil précis au moins au millimètre, éloignées de plus de 10m de (0, 0) ? **\#\#**
 
 > Indications : x, y sont en mètres.
 
-> Rappel : $ dist = \sqrt{(x_{A}-x_{B})^2+(y_{A}-y_{B})^2} $
+> Fonction racine carré en sql : `sqrt(valeur)`, fonction carré : `power(valeur, 2)`.
+
+> Rappel : $distance = \sqrt{(x_{B}-x_{A})^2+(y_{B}-y_{A})^2}$
+
+<!-- ```sql
+SELECT id
+FROM acquisitions AS a
+JOIN instruments AS i
+ON i.id = a.instrument_id
+WHERE i.precision < 0.001
+AND sqrt(power(x, 2) + power(y, 2)) > 10
+``` -->
+
+12) Qui est le modèle (pas l'instrument) qui réalise le plus d'acquisitions qui sont plus éloignées de (0, 0) que la moyenne des acquisitions. **\#\#\#**
+
+<!-- ```sql
+SELECT i.modele, COUNT(*)
+FROM instruments AS i
+JOIN (
+    SELECT instrument_id FROM acquisitions
+    WHERE sqrt(power(x, 2) + power(y, 2)) > (
+        SELECT AVG(sqrt(power(x, 2) + power(y, 2)))
+        FROM acquisitions
+    )
+) AS a
+ON i.id = a.instrument_id
+GROUP BY i.modele
+ORDER BY COUNT(*) DESC
+LIMIT 1
+``` -->
+
+13) Quelles sont les acquisitions de l'instrument le plus cher, parmis ceux utilisés par les géomètres avec un salaire inférieur à la moyenne ? **\#\#\#**
+
+<!-- ```sql
+SELECT *
+FROM acquisitions
+WHERE instrument_id = (
+    SELECT i.id
+    FROM instruments AS i
+    JOIN affectations AS af
+    ON i.id = af.instrument_id
+    JOIN (
+        SELECT id FROM geometres
+        WHERE salaire > (
+            SELECT AVG(salaire) FROM geometres
+        )
+    ) AS g
+    ON g.id = af.geometre_id
+    ORDER BY i.prix DESC
+    LIMIT 1
+)
+``` -->
