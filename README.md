@@ -1,5 +1,7 @@
 # cours d'introduction aux bases de données
 
+Damien D'ARRAS - damien.d-arras@ign.fr
+
 ## G2 - 2024
 
 Lien vers le cours : **[Google docs](https://docs.google.com/presentation/d/1TKlmLLidOdDczgt6kVVT4sk8SPTT3wJeAhqYRh8FDHs/edit?usp=sharing)**
