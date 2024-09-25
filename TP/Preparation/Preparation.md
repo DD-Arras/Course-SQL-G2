@@ -84,7 +84,7 @@ WHERE m.id = 8
 6) Quelle est la mission avec la moyenne d'age des géomètres la plus élevée ? **\#\#**
 
 <!-- ```sql
-SELECT m.nom
+SELECT m.id
 FROM missions AS m
 JOIN affectations AS a
 ON m.id = a.mission_id
