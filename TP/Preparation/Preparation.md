@@ -111,7 +111,7 @@ SELECT AVG(salaire) FROM (
 )
 ``` -->
 
-9) Ordonnez les modèles d'instruments, en fonction de leur prix moyen. **\#**
+9) Ordonnez les modèles d'instruments, en fonction de leur prix moyen, de manière croissante **\#**
 
 <!-- ```sql
 SELECT modele, AVG(prix)
