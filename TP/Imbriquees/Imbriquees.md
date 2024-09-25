@@ -159,7 +159,7 @@ JOIN villes AS v1
 ON v1.id = vg.ville_depart
 JOIN villes AS v2
 ON v2.id = vg.ville_arrivee
-GROUP BY v2.id
+GROUP BY v2.ville
 ORDER BY AVG(sqrt(power(v1.longitude - v2.longitude, 2) + power(v1.latitude - v2.latitude, 2))/vg.prix)
 LIMIT 1
 ```
@@ -169,17 +169,21 @@ LIMIT 1
 
 ```sql
 -- 2 - selection de l'ecart type (racine de la variance)
-SELECT m.partie, AVG(ABS(v.prix-m.moyenne))
-FROM voyages AS v
+SELECT m.partie, AVG(ABS(vg.prix-m.moyenne))
+FROM monde.voyages AS vg
+	JOIN monde.villes AS vi
+	ON vi.id = vg.ville_depart
 JOIN (
     -- 1 - Selection de la moyenne pour chaque partie
-    SELECT AVG(prix) AS moyenne, longitude < 0 AS partie FROM voyages
-    GROUP BY longitude < 0
+    SELECT AVG(vg.prix) AS moyenne, vi.longitude < 0 AS partie 
+	FROM monde.voyages AS vg
+	JOIN monde.villes AS vi
+	ON vg.ville_depart = vi.id
+    GROUP BY vi.longitude < 0
 ) AS m
-ON (v.longitude < 0) = m.partie
+ON (vi.longitude < 0) = m.partie
 GROUP BY m.partie
 ```
-<!-- A recheck vite fait-->
 
 13) Existe t-il des allers-retours : des paires de voyages avec des villes d'arrivée et de départ inversées ?
 
