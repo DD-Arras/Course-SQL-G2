@@ -4,18 +4,6 @@ Le but de ce TP est de comprendre les jointures. Leurs interêts et comment les 
 
 On commence à associer plusieurs tables.
 
-## Mise en place des ressources du TP
-
-Dans votre base de données, créez un nouveau schéma, nommé `jointures`.
-
-Un schéma, c'est une sorte de sous-dossier au sain d'une base
-
-Voici la procédure à suivre : `Schémas -> clic droit -> Créer -> Schéma`.
-
-![create_schema_path](/TP/JOIN/images/create_schema_path.png)
-
-![create_schema_dialog](/TP/JOIN/images/create_schema_dialog.png)
-
 ## Relation entreprises - employés
 
 Nous allons importer deux tables, en une seule fois, en utilisant le format natif `.sql`.
@@ -27,13 +15,12 @@ Il a le même format que le fichier de requêtes que vous avez peut-être sauveg
 Ces requêtes (qui ne sont pas à apprendre), permettent de créer deux tables, `entreprises` et `employes`, avant de les remplir.
 
 Pour lancer ces requêtes, suivez ces étapes :
- - Assurez vous de bien vous placer dans le nouveau schéma que vous avez créé.
  - Ouvrez l'éditeur de requêtes.
  - Appuyez sur le bouton "Ouvrir fichier" (ou utilisez le raccourci `Ctrl + O`).
  - Rentrez le fichier téléchargé.
  - Appuyez sur le bouton "Exécuter" (ou utilisez le raccourci `F5`).
 
-Vos deux nouvelles tables sont visibles après un raffraichissement du schéma (`jointures -> clic droit -> Raffraichir`).
+Vos deux nouvelles tables sont visibles après un raffraichissement du schéma (`schémas -> clic droit -> Raffraichir`).
 
 ![import_sql](/TP/JOIN/videos/import_sql.gif)
 

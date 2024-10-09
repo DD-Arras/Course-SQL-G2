@@ -1,3 +1,5 @@
+CREATE SCHEMA jointures IF NOT EXISTS;
+
 DROP TABLE IF EXISTS jointures.groupes CASCADE;
 DROP TABLE IF EXISTS jointures.musiciens CASCADE;
 DROP TABLE IF EXISTS jointures.albums CASCADE;
