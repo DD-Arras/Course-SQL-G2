@@ -6,7 +6,7 @@
 -- Chapter 6 nom Examples
 --------------------------------------------------------------
 
-CREATE SCHEMA jointures IF NOT EXISTS;
+CREATE SCHEMA IF NOT EXISTS jointures;
 
 DROP TABLE IF EXISTS jointures.entreprises;
 DROP TABLE IF EXISTS jointures.employes;

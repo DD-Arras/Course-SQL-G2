@@ -35,18 +35,18 @@ Est-ce facile, en regardant simplement les tables, de dire quels sont les employ
 Pour faciliter cette compréhension, essayez la requête suivante :
 
 ```sql
-SELECT * FROM jointures.entreprises 
-JOIN jointures.employes 
+SELECT * FROM jointures.employes
+JOIN jointures.entreprises
 ON jointures.entreprises.id = jointures.employes.entreprise_id
 ```
 
 C'est un peu plus facile de s'y retrouver.
 
-Cependant, si vous chercher à obtenir seulement le nom de l'entreprise, pour chaque employé, vous allez rencontrer un problème...
+Cependant, si vous chercher à obtenir seulement le nom de l'entreprise, vous allez rencontrer un problème...
 
 ```sql
-SELECT nom FROM jointures.entreprises 
-JOIN jointures.employes 
+SELECT nom FROM jointures.employes
+JOIN jointures.entrprises
 ON jointures.entreprises.id = jointures.employes.entreprise_id
 ```
 

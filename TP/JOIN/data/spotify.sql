@@ -1,4 +1,4 @@
-CREATE SCHEMA jointures IF NOT EXISTS;
+CREATE SCHEMA IF NOT EXISTS jointures;
 
 DROP TABLE IF EXISTS jointures.groupes CASCADE;
 DROP TABLE IF EXISTS jointures.musiciens CASCADE;
@@ -119,7 +119,7 @@ VALUES
     (3, 3),
     (4, 1),
     (5, 2),
-    (6, 2), 
+    (6, 2),
     (7, 5),
     (8, 1),
     (8, 2),
