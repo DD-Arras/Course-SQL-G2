@@ -8,18 +8,18 @@ Lien vers le cours : **[Google docs](https://docs.google.com/presentation/d/1TKl
 
 **[Cheat Sheet](./Cheat%20Sheet%20SQL.pdf)**
 
-[Premières manipulations de PgAdmin4](/TP/SELECT/Mise%20en%20place.md)
+[Premières manipulations de PgAdmin4](./TP/SELECT/Mise_en_place.md)
 
-[TP - Requêtes de base](/TP/SELECT/Requetes%20de%20base.md)
+[TP - Requêtes de base](./TP/SELECT/Requetes_de_base.md)
 
-[TP - Jointures](/TP/JOIN/Jointures.md) - [Aide aux jointures](/TP/JOIN/AideJointures.md)
+[TP - Jointures](/TP/JOIN/Jointures.md) - [Aide aux jointures](./TP/JOIN/AideJointures.md)
 
-[TP - LIKE](/TP/LIKE/LIKE.md)
+[TP - LIKE](./TP/LIKE/LIKE.md)
 
-[TP - Ecrit](/TP/Ecrit/JOIN_ecrit.md)
+[TP - Ecrit](./TP/Ecrit/JOIN_ecrit.md)
 
-[TP - Fonctions d'Agrégation](/TP/Agg/Agregation.md)
+[TP - Fonctions d'Agrégation](./TP/Agg/Agregation.md)
 
-[TP - Requêtes Imbriquées](/TP/Imbriquees/Imbriquees.md)
+[TP - Requêtes Imbriquées](./TP/Imbriquees/Imbriquees.md)
 
-[TP - Préparation](/TP/Preparation/Preparation.md)
+[TP - Préparation](./TP/Preparation/Preparation.md)
