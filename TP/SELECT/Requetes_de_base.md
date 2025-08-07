@@ -42,9 +42,9 @@ SELECT prenom, ecole FROM professeurs
 3) Quels sont les prénoms, et l'école, des profs allant à l'école `Myers Middle ecole` ?
 
 <details>
-    <summary> Indice </summary>
+    <summary> <i> Indice <i> </summary>
     WHERE
-</details>
+</details><br>
 
 <!-- ```sql
 SELECT prenom, ecole FROM professeurs
@@ -61,9 +61,9 @@ WHERE salaire > 40000
 5) Ordonnez le tableau pour avoir tous les profs de `F.D. Roosevelt HS`, puis tous les profs de `Myers Middle ecole`. Il faut prendre toutes les colonnes.
 
 <details>
-    <summary> Indice </summary>
+    <summary> <i> Indice <i> </summary>
     ORDER BY
-</details>
+</details><br>
 
 <!-- ```sql
 SELECT * FROM professeurs
@@ -73,9 +73,9 @@ ORDER BY ecole ASC
 6) Quels sont les prénoms des profs recrutés entre 2009 et 2012 ?
 
 <details>
-    <summary> Indice </summary>
+    <summary> <i> Indice <i> </summary>
     WHERE ... AND
-</details>
+</details><br>
 
 <!-- ```sql
 SELECT prenom FROM professeurs
@@ -93,9 +93,9 @@ ORDER BY salaire DESC
 8) Ecrire une requête pour obtenir le prénom du prof avec le salaire le plus haut.
 
 <details>
-    <summary> Indice </summary>
+    <summary> <i> Indice <i> </summary>
     LIMIT 1
-</details>
+</details><br>
 
 <!-- ```sql
 SELECT prenom FROM professeurs
@@ -133,9 +133,9 @@ WHERE commune="SCEAUX"
 
 2) Quels sont les identifiants des repères de type `Spit` avec une observation ?
 <details>
-    <summary> Indice </summary>
-    [Détecter la présence d'information sur une colonne](https://www.w3schools.com/sql/sql_null_values.asp)
-</details>
+    <summary> <i> Indice <i> </summary>
+    <a href="https://www.w3schools.com/sql/sql_null_values.asp">Détecter la présence d'information sur une colonne</a>
+</details><br>
 
 <!-- ```sql
 SELECT identifiant FROM reperes
@@ -143,7 +143,7 @@ WHERE nature="Spit"
 AND observation IS NOT NULL
 ``` -->
 
-3) En Lambert93, quels sont les identifiants des repères à l'ouest de `X=647888` ?
+1) En Lambert93, quels sont les identifiants des repères à l'ouest de `X=647888` ?
 
 <!-- ```sql
 SELECT identifiant FROM reperes
@@ -153,9 +153,9 @@ WHERE x_l93 < 647888
 3) En Lambert93, quels sont les identifiants des repères à l'ouest de `X=647888`, ou au nord de `Y=6854692`?
 
 <details>
-    <summary> Indice </summary>
+    <summary> <i> Indice <i> </summary>
     WHERE ... OR
-</details>
+</details><br>
 
 <!-- ```sql
 SELECT identifiant FROM reperes
@@ -182,9 +182,9 @@ ORDER BY codepostal DESC
 6) Préparez une requête pour filtrer les repères ayant une nature `Repère clou d'arpentage`.
 
 <details>
-    <summary> Indice </summary>
+    <summary> <i> Indice <i> </summary>
     <a href="https://stackoverflow.com/questions/1586560/how-do-i-escape-a-single-quote-in-sql-server">Echapper un apostrophe</a>
-</details>
+</details><br>
 
 <!-- ```sql
 SELECT identifiant FROM reperes

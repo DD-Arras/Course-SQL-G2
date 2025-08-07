@@ -14,7 +14,9 @@ PgAdmin est un outil d'admninistration de bases de données.
 
 Rendez vous sur [EDB Downloads](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) et téléchargez la dernière version pour votre système d'exploitation.
 
-Lancez l'installation et avancez dans le processus. Attention à bien sélectionner les quatre composants : ![installation_composants](./images/installation_composants.webp)
+Lancez l'installation et avancez dans le processus. Attention à bien sélectionner les quatre composants :
+
+![installation_composants](./images/installation_composants.webp)
 
 Puisque nous sommes dans un environnement local, je vous conseille d'utiliser un mot de passe facile à retenir, tel que `postgres`. Laissez les autres paramètres par défault.
 
