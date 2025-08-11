@@ -8,7 +8,7 @@ On commence à associer plusieurs tables.
 
 Nous allons importer deux tables, en une seule fois, en utilisant le format natif `.sql`.
 
-Télechargez ce fichier : [entreprise.sql](/TP/JOIN/data/entreprise.sql).
+Télechargez ce fichier : [entreprise.sql](./data/entreprise.sql).
 
 Il a le même format que le fichier de requêtes que vous avez peut-être sauvegardé hier. Il est donc composé, lui aussi, de requêtes SQL.
 
@@ -18,15 +18,16 @@ Pour lancer ces requêtes, suivez ces étapes :
  - Ouvrez l'éditeur de requêtes.
  - Appuyez sur le bouton "Ouvrir fichier" (ou utilisez le raccourci `Ctrl + O`).
  - Rentrez le fichier téléchargé.
+ - <i> Eventuellement, si vous souhaitez travailler sur un schéma personnel, remplacez toutes les occurences (Ctrl+Alt+F) de `public` par le nom souhaité de votre schéma, tel que `jointures` par exemple </i>
  - Appuyez sur le bouton "Exécuter" (ou utilisez le raccourci `F5`).
 
-Vos deux nouvelles tables sont visibles après un raffraichissement du schéma (`schémas -> clic droit -> Raffraichir`).
+Vos deux nouvelles tables sont visibles après un raffraichissement du schéma (`schémas -> clic droit -> Rafraichir`).
 
-![import_sql](/TP/JOIN/videos/import_sql.gif)
+![import_sql](./videos/import_sql.gif)
 
 Voici le schéma UML simbolisant ces deux tables :
 
-![entreprise_chart](/TP/JOIN/images/entreprise_chart.png)
+![entreprise_chart](./images/entreprise_chart.png)
 
 #### Exercices
 
@@ -35,49 +36,49 @@ Est-ce facile, en regardant simplement les tables, de dire quels sont les employ
 Pour faciliter cette compréhension, essayez la requête suivante :
 
 ```sql
-SELECT * FROM jointures.employes
-JOIN jointures.entreprises
-ON jointures.entreprises.id = jointures.employes.entreprise_id
+SELECT * FROM employes
+JOIN entreprises
+ON entreprises.id = employes.entreprise_id
 ```
 
 C'est un peu plus facile de s'y retrouver.
 
-Cependant, si vous chercher à obtenir seulement le nom de l'entreprise, vous allez rencontrer un problème...
+Cependant, si vous chercher à obtenir seulement le nom de l'entreprise et celui de l'employé, vous allez rencontrer un problème...
 
 ```sql
-SELECT nom FROM jointures.employes
-JOIN jointures.entrprises
-ON jointures.entreprises.id = jointures.employes.entreprise_id
+SELECT nom, nom FROM employes
+JOIN entrprises
+ON entreprises.id = employes.entreprise_id
 ```
 
 1) Essayez d'utiliser la diapositive 29 du [cours](https://docs.google.com/presentation/d/1TKlmLLidOdDczgt6kVVT4sk8SPTT3wJeAhqYRh8FDHs/edit?usp=sharing) pour sélectionner le nom de chaque employé, et le nom de l'entreprise à laquelle il appartient.
 
-```sql
-SELECT ent.nom, emp.nom FROM jointures.entreprises AS ent
-JOIN jointures.employes AS emp
+<!-- ```sql
+SELECT ent.nom, emp.nom FROM entreprises AS ent
+JOIN employes AS emp
 ON ent.id = emp.entreprise_id
-``` 
+``` -->
 
 Pour les questions suivantes, Formulez des requêtes SQL pour obtenir le résultat demandé.
 
-2) Quel est le nom de l'entreprise de `Nancy` `Jones` ?
+2) Quels sont les noms et prénoms des employés de `General Electric` ?
 
-```sql
-SELECT ent.nom, FROM jointures.entreprises AS ent
-JOIN jointures.employes AS emp
+<!-- ```sql
+SELECT emp.nom, emp.prenom FROM entreprises AS ent
+JOIN employes AS emp
+ON ent.id = emp.entreprise_id
+WHERE ent.nom = 'General Electric'
+``` -->
+
+3) Quel est le nom de l'entreprise de `Nancy` `Jones` ?
+
+<!-- ```sql
+SELECT ent.nom, FROM entreprises AS ent
+JOIN employes AS emp
 ON ent.id = emp.entreprise_id
 WHERE emp.nom = 'Jones'
 AND emp.prenom = 'Nancy'
-``` 
-
-3) Quels sont les noms et prénoms des employés de `General Electric` ?
-
-```sql
-SELECT emp.nom, emp.prenom FROM jointures.entreprises AS ent
-JOIN jointures.employes AS emp
-ON ent.id = emp.entreprise_id
-WHERE ent.nom = 'General Electric'
-``` 
+``` -->
 
 > Indication : Pour faciliter la lecture de la table de résultat, vous pouvez aussi donner un alias dans vos noms de colonnes.
 <details>
@@ -90,36 +91,36 @@ WHERE ent.nom = 'General Electric'
 
 4) Ou se situe l'entreprise qui possède l'employé avec le meilleur salaire ?
 
-```sql
-SELECT ent.ville FROM jointures.entreprises AS ent
-JOIN jointures.employes AS emp
+<!-- ```sql
+SELECT ent.ville FROM entreprises AS ent
+JOIN employes AS emp
 ON ent.id = emp.entreprise_id
 ORDER BY salaire DESC
 LIMIT 1
-``` 
+``` -->
 
 5) Parmis les employés situés à `Atlanta`, lequel est le moins bien payé, et quelle est son entreprise ?
 
-```sql
-SELECT ent.nom, emp.nom FROM jointures.entreprises AS ent
-JOIN jointures.employes AS emp
+<!-- ```sql
+SELECT ent.nom, emp.nom FROM entreprises AS ent
+JOIN employes AS emp
 ON ent.id = emp.entreprise_id
 WHERE ent.ville = 'Atlanta'
 ORDER BY salaire ASC
 LIMIT 1
-```
+``` -->
 
 ## Relations Spotify
 
 Nous allons nous interesser à un autre ensemble de tables, celui-ci un peu plus complexe.
 
-De la même manière que vous avez importé les tables de la relation entreprises - employés, importez le fichier [spotify.sql](/TP/JOIN/data/spotify.sql).
+De la même manière que vous avez importé les tables de la relation entreprises - employés, importez le fichier [spotify.sql](./data/spotify.sql).
 
 Vous avez alors 6 nouvelles tables.
 
 Voici le schéma UML des tables importées :
 
-![spotify_chart](/TP/JOIN/images/spotify_chart.png)
+![spotify_chart](./images/spotify_chart.png)
 
 #### Exercices
 
@@ -127,78 +128,78 @@ Formulez des requêtes SQL pour obtenir le résultat demandé.
 
 1) En réalisant une jointure entre `groupes` et `albums`, quel est le nom du groupe ayant fait l'album `For All The Dogs` ?
 
-```sql
-SELECT g.nom FROM jointures.groupes AS g
-JOIN jointures.albums AS a
+<!-- ```sql
+SELECT g.nom FROM groupes AS g
+JOIN albums AS a
 ON g.id = a.groupe_id
 WHERE a.nom = 'For All The Dogs'
-``` 
+``` -->
 
 2) Quand est-ce que le groupe `Animals as Leaders` a sorti des albums ?
 
-```sql
-SELECT a.sortie FROM jointures.groupes AS g
-JOIN jointures.albums AS a
+<!-- ```sql
+SELECT a.sortie FROM groupes AS g
+JOIN albums AS a
 ON g.id = a.groupe_id
 WHERE g.nom = 'Animals as Leaders'
-``` 
+``` -->
 
 3) En faisant maintenant une jointure entre `groupes` et `musiciens`, quels sont les noms et prénoms des membres des groupe `GIMS` et `Billie Eilish` ?
 
-```sql
-SELECT a.sortie FROM jointures.groupes AS g
-JOIN jointures.musiciens AS m
+<!-- ```sql
+SELECT a.sortie FROM groupes AS g
+JOIN musiciens AS m
 ON g.id = m.groupe_id
 WHERE g.nom = 'GIMS'
 OR g.nom = 'Billie Eilish'
-``` 
+``` -->
 
 4) En quelle année `Djuna` `Ghandi` a t-il commencé sa carrière ?
 
-```sql
-SELECT g.date_creation FROM jointures.groupes AS g
-JOIN jointures.musiciens AS m
+<!-- ```sql
+SELECT g.date_creation FROM groupes AS g
+JOIN musiciens AS m
 ON g.id = m.groupe_id
 WHERE m.nom = 'Ghandi'
 AND m.prenom = 'Djuna'
-``` 
+``` -->
 
 5) En utilisant la jointure appropriée, quel est le nom de l'album du titre `LUNCH` ?
 
-```sql
-SELECT a.nom FROM jointures.albums AS a
-JOIN jointures.sons AS s
+<!-- ```sql
+SELECT a.nom FROM jointurealbums AS a
+JOIN sons AS s
 ON a.id = s.album_id
 WHERE s.nom = 'LUNCH'
-```
+``` -->
 
 6) Quels sont les titres des singles : les sons avec un nom identique à leur album ?
 
-```sql
-SELECT s.nom FROM jointures.albums AS a
-JOIN jointures.sons AS s
+<!-- ```sql
+SELECT s.nom FROM albums AS a
+JOIN sons AS s
 ON a.id = s.album_id
 WHERE s.nom = a.nom
-```
+``` -->
 
 7) Quel label propose le son le plus long disponible sur la base de données ?
 
-```sql
-SELECT a.label FROM jointures.albums AS a
-JOIN jointures.sons AS s
+<!-- ```sql
+SELECT a.label FROM albums AS a
+JOIN sons AS s
 ON a.id = s.album_id
 ORDER BY duree DESC
 LIMIT 1
-```
+``` -->
 
-Pour associer chaque musicien a ses instruments, nous allons effectuer une double jointure. Essayez cette requête :
+Pour associer chaque musicien à ses instruments, nous allons effectuer une double jointure. Essayez cette requête :
 
 ```sql
 SELECT m.prenom, m.nom, i.nom AS instrument
-FROM jointures.link_musiciens_instruments AS l
-JOIN jointures.musiciens AS m
+FROM link_musiciens_instruments AS l
+JOIN musiciens AS m
 ON l.musicien_id = m.id
-JOIN jointures.instruments AS i
+JOIN instruments AS i
 ON l.instrument_id = i.id
 ```
 
@@ -210,75 +211,75 @@ Formulez une requêtes pour las questions suivantes :
 
 8) Quels musiciens utilisent leur voix ?
 
-```sql
+<!-- ```sql
 SELECT m.prenom, m.nom
-FROM jointures.link_musiciens_instruments AS l
-JOIN jointures.musiciens AS m
+FROM link_musiciens_instruments AS l
+JOIN musiciens AS m
 ON l.musicien_id = m.id
-JOIN jointures.instruments AS i
+JOIN instruments AS i
 ON l.instrument_id = i.id
 WHERE i.name = 'voix'
-```
+``` -->
 
 Les requêtes suivantes utilisent plusieurs jointures pour aboutir... A vous de déterminer lesquelles.
 
 9) Quels groupes utilisent une batterie ?
 
-```sql
-SELECT g.nom, 
-FROM jointures.link_musiciens_instruments AS l
-JOIN jointures.musiciens AS m
+<!-- ```sql
+SELECT g.nom,
+FROM link_musiciens_instruments AS l
+JOIN musiciens AS m
 ON l.musicien_id = m.id
-JOIN jointures.instruments AS i
+JOIN instruments AS i
 ON l.instrument_id = i.id
-JOIN jointures.groupes AS g
+JOIN groupes AS g
 ON g.id = m.groupe_id
 WHERE i.name = 'batterie'
-```
+``` -->
 
 10) Quel groupe possède le son avec le plus de `streams` ?
 
-```sql
+<!-- ```sql
 SELECT g.nom
-FROM jointures.groupes AS g
-JOIN jointures.albums AS a
+FROM groupes AS g
+JOIN albums AS a
 ON g.id = a.groupe_id
-JOIN jointures.sons AS s
+JOIN sons AS s
 ON a.id = s.album_id
 ORDER BY s.streams
 LIMIT 1
-```
+``` -->
 
 11) Quels sont les instruments utilisés par les compositeurs de chaque sons ? Affichez Le titre, le nom du compositeur, et ses instruments.
 
-```sql
+<!-- ```sql
 SELECT m.prenom, m.nom, i.nom AS instrument, s.nom AS son
-FROM jointures.link_musiciens_instruments AS l
-JOIN jointures.musiciens AS m
+FROM link_musiciens_instruments AS l
+JOIN musiciens AS m
 ON l.musicien_id = m.id
-JOIN jointures.instruments AS i
+JOIN instruments AS i
 ON l.instrument_id = i.id
-JOIN jointures.sons AS s
+JOIN sons AS s
 ON m.id = s.compositeur_id
-```
+``` -->
 
 12) Quels sont les albums dans lequels il y a des paroles, et dont le groupe a été créé avant 2008 ?
 
-```sql
+<!-- ```sql
 SELECT a.nom
-FROM jointures.link_musiciens_instruments AS l
-JOIN jointures.musiciens AS m
+FROM link_musiciens_instruments AS l
+JOIN musiciens AS m
 ON l.musicien_id = m.id
-JOIN jointures.instruments AS i
+JOIN instruments AS i
 ON l.instrument_id = i.id
-JOIN jointures.groupes AS g
+JOIN groupes AS g
 ON g.id = m.groupe_id
-JOIN jointures.albums AS a
+JOIN albums AS a
 ON g.id = a.groupe_id
 WHERE i.nom = 'voix'
 AND g.date_creation < '2008-01-01'
-```
+``` -->
 
 13) Pourquoi n'est il pas possible, avec vos connaissance actelles, de formuler une requête répondant à la question suivante : Quel est la chanson avec le plus de streams, parmis les chansons composées par le musicien le plus jeune ?
 
-> Une manière de répondre à la question est de, dans un premier temps, détermier quel est le musicien le plus jeune, puis, dans un second temps, trouver quelle chanson a le plus de streams parmi celles qu'il a composé. Cependant, avec vos connaissances actuelles, vous ne pouvez faire que des requêtes instantannées. Il faudra attendre les requêtes imbriquées pour faire des requêtes en plusieurs temps. Même si il est tout de même possible de determiner le musicien le plus jeune dans le même temps de troucher ses sons, cela nécessite l'utilisation des fonctions d'aggrégation, que vous ne connaissez pas encore.
+<!-- > Une manière de répondre à la question est de, dans un premier temps, détermier quel est le musicien le plus jeune, puis, dans un second temps, trouver quelle chanson a le plus de streams parmi celles qu'il a composé. Cependant, avec vos connaissances actuelles, vous ne pouvez faire que des requêtes instantannées. Il faudra attendre les requêtes imbriquées pour faire des requêtes en plusieurs temps. Même si il est tout de même possible de determiner le musicien le plus jeune dans le même temps de troucher ses sons, cela nécessite l'utilisation des fonctions d'aggrégation, que vous ne connaissez pas encore. -->

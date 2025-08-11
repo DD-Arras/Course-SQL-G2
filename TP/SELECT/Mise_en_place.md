@@ -50,6 +50,8 @@ Notre serveur local est vide. Nous allons créer une nouvelle base de donnée. D
 
 Nous avons maintenant une base de données `SQL G2`, qui nous suivra durant tout le cours.
 
+> Si vous avez fait une opération, telle que la création d'une base ou d'une table, mais que l'objet ne s'affiche pas dans l'arborescence, faites clic droit dans la catégorie de l'objet, puis rafraîchir.
+
 ## Import d'une table CSV
 
 Télechargez le fichier suivant : [table professeurs.csv](./data/professeurs.csv).

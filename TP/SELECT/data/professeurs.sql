@@ -1,6 +1,8 @@
-DROP TABLE professeurs IF EXISTS CASCADE;
+CREATE SCHEMA IF NOT EXISTS "public";
 
-CREATE TABLE professeurs (
+DROP TABLE "public".professeurs IF EXISTS CASCADE;
+
+CREATE TABLE "public".professeurs (
     id INT PRIMARY KEY,
     prenom VARCHAR(50),
     nom VARCHAR(50),
@@ -9,7 +11,7 @@ CREATE TABLE professeurs (
     salaire DECIMAL(10, 2)
 );
 
-INSERT INTO professeurs (id, prenom, nom, ecole, date_embauche, salaire) VALUES
+INSERT INTO "public".professeurs (id, prenom, nom, ecole, date_embauche, salaire) VALUES
 (1, 'Janet', 'Smith', 'F.D. Roosevelt HS', '2011-10-30', 36200),
 (2, 'Lee', 'Reynolds', 'F.D. Roosevelt HS', '1993-05-22', 65000),
 (3, 'Samuel', 'Cole', 'Myers Middle School', '2005-08-01', 43500),

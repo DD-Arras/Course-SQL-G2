@@ -6,32 +6,32 @@
 -- Chapter 6 nom Examples
 --------------------------------------------------------------
 
-CREATE SCHEMA IF NOT EXISTS jointures;
+CREATE SCHEMA IF NOT EXISTS "public";
 
-DROP TABLE IF EXISTS jointures.entreprises;
-DROP TABLE IF EXISTS jointures.employes;
+DROP TABLE IF EXISTS "public".entreprises;
+DROP TABLE IF EXISTS "public".employes;
 
-CREATE TABLE jointures.entreprises (
+CREATE TABLE "public".entreprises (
     id serial PRIMARY KEY,
     nom varchar(100),
     ville varchar(100)
 );
 
-CREATE TABLE jointures.employes (
+CREATE TABLE "public".employes (
     id serial PRIMARY KEY,
     prenom varchar(100),
     nom varchar(100),
     salaire integer,
-    entreprise_id integer REFERENCES jointures.entreprises (id)
+    entreprise_id integer REFERENCES "public".entreprises (id)
 );
 
-INSERT INTO jointures.entreprises (nom, ville)
+INSERT INTO "public".entreprises (nom, ville)
 VALUES
     ('First Data', 'Atlanta'),
     ('Grey Television', 'Atlanta'),
     ('General Electric', 'Boston');
 
-INSERT INTO jointures.employes (prenom, nom, salaire, entreprise_id)
+INSERT INTO "public".employes (prenom, nom, salaire, entreprise_id)
 VALUES
     ('Nancy', 'Jones', 62500, 1),
     ('Lee', 'Smith', 59300, 1),
