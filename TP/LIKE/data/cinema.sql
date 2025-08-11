@@ -1,43 +1,43 @@
-CREATE SCHEMA IF NOT EXISTS cinema;
+CREATE SCHEMA IF NOT EXISTS "public";
 
-DROP TABLE IF EXISTS cinema.films CASCADE;
-DROP TABLE IF EXISTS cinema.realisateurs CASCADE;
-DROP TABLE IF EXISTS cinema.acteurs CASCADE;
-DROP TABLE IF EXISTS cinema.casting CASCADE;
+DROP TABLE IF EXISTS "public".films CASCADE;
+DROP TABLE IF EXISTS "public".realisateurs CASCADE;
+DROP TABLE IF EXISTS "public".acteurs CASCADE;
+DROP TABLE IF EXISTS "public".casting CASCADE;
 
-CREATE TABLE cinema.realisateurs (
+CREATE TABLE "public".realisateurs (
     realisateur_id INT PRIMARY KEY,
     nom VARCHAR(100),
     prenom VARCHAR(100),
     nationalite VARCHAR(50)
 );
 
-CREATE TABLE cinema.films (
+CREATE TABLE "public".films (
     film_id INT PRIMARY KEY,
     realisateur_id INT,
     titre VARCHAR(100),
     genre VARCHAR(50),
     date_sortie DATE,
-    FOREIGN KEY (realisateur_id) REFERENCES cinema.realisateurs(realisateur_id)
+    FOREIGN KEY (realisateur_id) REFERENCES "public".realisateurs(realisateur_id)
 );
 
-CREATE TABLE cinema.acteurs (
+CREATE TABLE "public".acteurs (
     acteur_id INT PRIMARY KEY,
     nom VARCHAR(100),
     prenom VARCHAR(100),
     date_naissance DATE
 );
 
-CREATE TABLE cinema.casting (
+CREATE TABLE "public".casting (
     casting_id INT PRIMARY KEY,
     film_id INT,
     acteur_id INT,
     role VARCHAR(100),
-    FOREIGN KEY (film_id) REFERENCES cinema.films(film_id),
-    FOREIGN KEY (acteur_id) REFERENCES cinema.acteurs(acteur_id)
+    FOREIGN KEY (film_id) REFERENCES "public".films(film_id),
+    FOREIGN KEY (acteur_id) REFERENCES "public".acteurs(acteur_id)
 );
 
-INSERT INTO cinema.realisateurs (realisateur_id, nom, prenom, nationalite) VALUES
+INSERT INTO "public".realisateurs (realisateur_id, nom, prenom, nationalite) VALUES
 (1, 'Nolan', 'Christopher', 'Britannique'),
 (2, 'Tarantino', 'Quentin', 'Américain'),
 (3, 'Chazelle', 'Damien', 'Américain'),
@@ -48,7 +48,7 @@ INSERT INTO cinema.realisateurs (realisateur_id, nom, prenom, nationalite) VALUE
 (8, 'Fincher', 'David', 'Américain'),
 (9, 'Scorsese', 'Martin', 'Américain, Italien');
 
-INSERT INTO cinema.films (film_id, titre, genre, date_sortie, realisateur_id) VALUES
+INSERT INTO "public".films (film_id, titre, genre, date_sortie, realisateur_id) VALUES
 (1, 'Inception', 'Science Fiction', '2010-07-16', 1),
 (2, 'The Dark Knight', 'Action', '2008-07-18', 1),
 (3, 'Interstellar', 'Science Fiction', '2014-11-07', 1),
@@ -63,7 +63,7 @@ INSERT INTO cinema.films (film_id, titre, genre, date_sortie, realisateur_id) VA
 (12, 'The Wolf of Wall Street', 'Biographie', '2013-12-25', 9),
 (13, 'Once Upon a Time in Hollywood', 'Comédie dramatique', '2019-07-26', 2);
 
-INSERT INTO cinema.acteurs (acteur_id, nom, prenom, date_naissance) VALUES
+INSERT INTO "public".acteurs (acteur_id, nom, prenom, date_naissance) VALUES
 (1, 'DiCaprio', 'Leonardo', '1974-11-11'),
 (2, 'Bale', 'Christian', '1974-01-30'),
 (3, 'Pitt', 'Brad', '1963-12-18'),
@@ -77,7 +77,7 @@ INSERT INTO cinema.acteurs (acteur_id, nom, prenom, date_naissance) VALUES
 (11, 'Norton', 'Edward', '1969-08-18'),
 (12, 'Robbie', 'Margot', '1990-07-02');
 
-INSERT INTO cinema.casting (casting_id, film_id, acteur_id, role) VALUES
+INSERT INTO "public".casting (casting_id, film_id, acteur_id, role) VALUES
 (1, 1, 1, 'Dom Cobb'),
 (2, 2, 2, 'Bruce Wayne _ Batman'),
 (3, 3, 1, 'Cooper'),

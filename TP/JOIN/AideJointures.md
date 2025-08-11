@@ -2,7 +2,7 @@
 
 Ce document à pour but d'aider dans l'établissement de jointures concrètes.
 
-On reprendra les exemples du [TP - Jointures](/TP/JOIN/Jointures.md) pour vous aider à mieux comprendre les exercices, et la correction.
+On reprendra les exemples du [TP - Jointures](./Jointures.md) pour vous aider à mieux comprendre les exercices, et la correction.
 
 ## Pourquoi établir une jointure
 
@@ -18,7 +18,7 @@ Cela va permettre d'obtenir les colonnes des entreprises et les colonnes des sal
 
 ### Avec un diagramme UML
 
-![Diagramme entreprises salariés](/TP/JOIN/images/spotify_chart.png)
+![Diagramme entreprises salariés](./images/spotify_chart.png)
 
 Dès que vous voyez un trait entre deux tables : une jointure est possible.
 
@@ -54,11 +54,11 @@ On écrit d'abord `FROM`, puis la première table de notre jointure. On pense à
 Dans notre cas, notre schéma est `jointures`. Le nom de la première table est `groupes`. On écrit donc :
 
 ```sql
-FROM jointures.groupes
+FROM groupes
 ```
 On ajoute un *alias* à cette table avec `AS`. Cet alias sera souvent la ou les premières lettres du nom de la table.
 ```sql
-FROM jointures.groupes AS g
+FROM groupes AS g
 ```
 <p style="color:yellow">En dehors de cette ligne, on remplace la table <code>groupes</code> avec la lettre <b>g</b>.</p>
 
@@ -68,19 +68,19 @@ On écrit ensuite `JOIN`, puis la deuxième table de notre jointure. On n'oublie
 
 Dans notre cas, notre schéma est `jointures`. Le nom de la deuxième table est `musiciens`. On écrit donc :
 ```sql
-FROM jointures.groupes AS g
-JOIN jointures.musiciens
+FROM groupes AS g
+JOIN musiciens
 ```
 Ici aussi, on va donner un alias à cette table avec `AS`. On donne ici l'alias `m` :
 ```sql
-FROM jointure.groupes AS g
-JOIN jointures.musiciens AS m
+FROM groupes AS g
+JOIN musiciens AS m
 ```
 <p style="color:yellow">En dehors de cette ligne, on remplace la table <code>musiciens</code> avec la lettre <b>m</b>.</p>
 
 ### Partie `ON`
 
-On détermine la **clé étrangère** de la jonction (voir plus haut). 
+On détermine la **clé étrangère** de la jonction (voir plus haut).
 
 Ici, il s'agit du champs `groupe_id` de la table `musiciens`.
 
@@ -88,21 +88,21 @@ Puisque qu'on utilise un *alias* pour la table `musiciens`, on peut accéder a c
 
 On commence à écrire la partie `ON` de la requête.
 ```sql
-FROM jointure.groupes AS g
-JOIN jointures.musiciens AS m
+FROM groupes AS g
+JOIN musiciens AS m
 ON m.groupe_id
 ```
 
-On détermine ensuite la **clé primaire** approppriée (voir plus haut). Il faut que la clé étrangère et la clé primaire soient de **tables différentes**. 
+On détermine ensuite la **clé primaire** approppriée (voir plus haut). Il faut que la clé étrangère et la clé primaire soient de **tables différentes**.
 
-C'est pour cette raison que la clé primaire, dans cet exemple, est `groupes.id`. 
+C'est pour cette raison que la clé primaire, dans cet exemple, est `groupes.id`.
 
 Puisque qu'on utilise un *alias* pour la table `groupes`, on peut accéder a ce champ avec `g.id`.
 
 On finit la partie `ON` de la requête.
 ```sql
-FROM jointure.groupes AS g
-JOIN jointures.musiciens AS m
+FROM groupes AS g
+JOIN musiciens AS m
 ON m.groupe_id = g.id
 ```
 
@@ -120,8 +120,8 @@ Si on souhaite obtenir la colonne `nom` de la table `groupes`, on obtient :
 
 ```sql
 SELECT g.nom
-FROM jointure.groupes AS g
-JOIN jointures.musiciens AS m
+FROM groupes AS g
+JOIN musiciens AS m
 ON m.groupe_id = g.id
 ```
 
@@ -131,8 +131,8 @@ Par exemple, on donne `nom_de_groupe` et `nom_du_musicien` commes *alias*.
 
 ```sql
 SELECT g.nom AS nom_de_groupe, m.nom AS nom_du_musicien
-FROM jointure.groupes AS g
-JOIN jointures.musiciens AS m
+FROM groupes AS g
+JOIN musiciens AS m
 ON m.groupe_id = g.id
 ```
 
@@ -140,8 +140,8 @@ De la même manière, si on souhaite utiliser un filtre `WHERE`, on utilise touj
 
 ```sql
 SELECT g.nom AS nom_de_groupe, m.nom AS nom_du_musicien
-FROM jointure.groupes AS g
-JOIN jointures.musiciens AS m
+FROM groupes AS g
+JOIN musiciens AS m
 ON m.groupe_id = g.id
 WHERE g.date_creation < '2008-01-01'
 ```
