@@ -118,6 +118,8 @@ De la même manière que vous avez importé `professeurs.csv`, téléchargez et 
 
 > Lors de la sélection du séparateur, indiquez `;` (point-virgule) à la place de `,` (virgule).
 
+> Mettez les noms des champs en **minuscule**.
+
 > Si vous avez un doute sur le type d'une colonne, préferez `character varying`. La conversion vers d'autres types de données est plus facile.
 
 > *Si vous avez un problème pour importer les données, vous pouvez aussi utiliser l'éditeur de requêtes et [ce fichier](./data/reperes_topo.sql). Appelez moi !*
