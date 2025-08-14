@@ -23,7 +23,7 @@ De plus, pour simplifier l'accès à la bonne table dans le bon schéma, vous po
 
 Utilisez la touche `F5` pour lancer votre requête. Les résultats s'affichent dans le panneau au milieu en bas.
 
-> Vous pouvez juxtaposer plusieurs requête dans un seul éditeur de requête. Utilisez le symbole `;` (point-virgule) pour séparer les requêtes. Dans ce cas, à chaque `F5`, toutes les requêtes seront exécutées, mais seul le résulat de la dernière sera affiché.
+> Vous pouvez juxtaposer plusieurs requêtes dans un seul éditeur de requête. Utilisez le symbole `;` (point-virgule) pour séparer les requêtes. Dans ce cas, à chaque `F5`, toutes les requêtes seront exécutées, mais seul le résulat de la dernière sera affiché.
 
 #### Exercices
 
@@ -79,7 +79,7 @@ ORDER BY ecole ASC
 
 <!-- ```sql
 SELECT prenom FROM professeurs
-WHERE date_embauche > '2009-01-01'
+WHERE date_embauche >= '2009-01-01'
 AND date_embauche < '2012-01-01'
 ``` -->
 
@@ -135,7 +135,7 @@ SELECT identifiant FROM reperes
 WHERE nature = "Spit"
 ``` -->
 
-1) Quels sont les identifiants des repères de la commune de Sceaux avec une observation ?
+2) Quels sont les identifiants des repères de la commune de Sceaux avec une observation ?
 <details>
     <summary> <i> Indice </i> </summary>
     <a href="https://www.w3schools.com/sql/sql_null_values.asp">Détecter la présence d'information sur une colonne</a>
@@ -147,14 +147,14 @@ WHERE commune = "SCEAUX"
 AND observation IS NOT NULL
 ``` -->
 
-1) En Lambert93, quels sont les identifiants des repères à l'ouest de `X=647888` ?
+3) En Lambert93, quels sont les identifiants des repères à l'ouest de `X=647888` ?
 
 <!-- ```sql
 SELECT identifiant FROM reperes
 WHERE x_l93 < 647888
 ``` -->
 
-3) En Lambert93, quels sont les identifiants des repères à l'ouest de `X=647888`, ou au nord de `Y=6854692`?
+4) En Lambert93, quels sont les identifiants des repères à l'ouest de `X=647888`, ou au nord de `Y=6854692`?
 
 <details>
     <summary> <i> Indice </i> </summary>
@@ -167,7 +167,7 @@ WHERE x_l93 < 647888
 OR y_l93 > 6854692
 ``` -->
 
-4) Comparez les résultats des deux requêtes suivantes :
+5) Comparez les résultats des deux requêtes suivantes :
 
 ```sql
 SELECT commune FROM reperes
@@ -176,7 +176,7 @@ SELECT commune FROM reperes
 SELECT DISTINCT commune FROM reperes
 ```
 
-5) Formulez une requête pour obtenir les trois codes postaux les plus hauts. Les trois doivent être différents.
+6) Formulez une requête pour obtenir les trois codes postaux les plus hauts. Les trois doivent être différents.
 
 <!-- ```sql
 SELECT DISTINCT codepostal FROM reperes
@@ -184,7 +184,7 @@ ORDER BY codepostal DESC
 LIMIT 3
 ``` -->
 
-6) Préparez une requête pour filtrer les repères ayant une nature `Repère clou d'arpentage`.
+7) Préparez une requête pour filtrer les repères ayant une nature `Repère clou d'arpentage`.
 
 <details>
     <summary> <i> Indice </i> </summary>
