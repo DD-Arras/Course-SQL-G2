@@ -128,14 +128,14 @@ De la même manière que vous avez importé `professeurs.csv`, téléchargez et 
 
 Formulez des requêtes SQL pour obtenir le résultat demandé.
 
-1) Quels sont les identifiants des repères de la commune de `Sceaux` ?
+1) Quels sont les identifiants des repères de type 'Spit' ?
 
 <!-- ```sql
 SELECT identifiant FROM reperes
-WHERE commune="SCEAUX"
+WHERE nature = "Spit"
 ``` -->
 
-2) Quels sont les identifiants des repères de type `Spit` avec une observation ?
+1) Quels sont les identifiants des repères de la commune de Sceaux avec une observation ?
 <details>
     <summary> <i> Indice </i> </summary>
     <a href="https://www.w3schools.com/sql/sql_null_values.asp">Détecter la présence d'information sur une colonne</a>
@@ -143,7 +143,7 @@ WHERE commune="SCEAUX"
 
 <!-- ```sql
 SELECT identifiant FROM reperes
-WHERE nature="Spit"
+WHERE commune = "SCEAUX"
 AND observation IS NOT NULL
 ``` -->
 
@@ -181,6 +181,7 @@ SELECT DISTINCT commune FROM reperes
 <!-- ```sql
 SELECT DISTINCT codepostal FROM reperes
 ORDER BY codepostal DESC
+LIMIT 3
 ``` -->
 
 6) Préparez une requête pour filtrer les repères ayant une nature `Repère clou d'arpentage`.
@@ -192,5 +193,5 @@ ORDER BY codepostal DESC
 
 <!-- ```sql
 SELECT identifiant FROM reperes
-WHERE nature='Repère clou d''arpentage'
+WHERE nature = 'Repère clou d''arpentage'
 ``` -->
