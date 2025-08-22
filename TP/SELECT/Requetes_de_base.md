@@ -39,7 +39,7 @@ SELECT prenom FROM professeurs
 SELECT prenom, ecole FROM professeurs
 ``` -->
 
-3) Quels sont les prénoms, et l'école, des profs allant à l'école `Myers Middle ecole` ?
+3) Quels sont les prénoms, et l'école, des profs allant à l'école `Myers Middle School` ?
 
 <details>
     <summary> <i> Indice </i> </summary>
@@ -48,7 +48,7 @@ SELECT prenom, ecole FROM professeurs
 
 <!-- ```sql
 SELECT prenom, ecole FROM professeurs
-WHERE ecole = 'Myers Middle ecole'
+WHERE ecole = 'Myers Middle School'
 ``` -->
 
 4) Quels sont les prénoms des profs avec un salaire supérieur à `40000` dollars par an ?
@@ -90,7 +90,7 @@ SELECT * FROM professeurs
 ORDER BY salaire DESC
 ``` -->
 
-8) Ecrire une requête pour obtenir le prénom du prof avec le salaire le plus haut.
+8) Ecrire une requête pour obtenir le prénom du ou de la prof avec le salaire le plus haut.
 
 <details>
     <summary> <i> Indice </i> </summary>
@@ -103,11 +103,11 @@ ORDER BY salaire DESC
 LIMIT 1
 ``` -->
 
-9) Quel est le prénom du prof avec le salaire le plus bas, dans les profs de `Myers Middle ecole` ?
+9) Quel est le prénom du ou de la prof avec le salaire le plus bas, dans les profs de `Myers Middle School` ?
 
 <!-- ```sql
 SELECT prenom FROM professeurs
-WHERE ecole = 'Myers Middle ecole'
+WHERE ecole = 'Myers Middle School'
 ORDER BY salaire ASC
 LIMIT 1
 ``` -->

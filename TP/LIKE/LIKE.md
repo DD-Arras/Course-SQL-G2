@@ -20,7 +20,7 @@ Voici le schéma UML simbolisant ces tables :
 WHERE colonne BETWEEN value1 AND value2;
 ```
 
-1) Forumulez une requête pour obtenir les acteurs nés entre 1970 et 1980 en utilisant `BETWEEN`.
+1) Forumulez une requête pour obtenir les acteurs et actrices nés entre 1970 et 1980 en utilisant `BETWEEN`.
 
 <!-- ```sql
 SELECT *
@@ -36,7 +36,7 @@ FROM films
 WHERE date_sortie BETWEEN '1990-01-01' AND '1999-12-31'
 ``` -->
 
-3) Formulez une requête pour obtenir les réalisateurs dont les prénoms ont une première lettre comprise entre 'D' et 'N', en utilisant `BETWEEN`.
+3) Formulez une requête pour obtenir les réalisateurs et réalisatrices dont les prénoms ont une première lettre comprise entre 'D' et 'N', en utilisant `BETWEEN`.
 
 <!-- ```sql
 SELECT *
@@ -72,13 +72,13 @@ Par exemle,
 SELECT * FROM cinema.acteurs
 WHERE nom LIKE `%osling'
 ```
-donne tous les acteurs dont le nom finit par 'osling', tels que 'Gosling', 'Aosling', mais aussi 'ABCDosling', etc...
+donne tous les acteurs et actrices dont le nom finit par 'osling', tels que 'Gosling', 'Aosling', mais aussi 'ABCDosling', etc...
 
 Il existe deux characters spéciaux à utiliser dans les exprssions de `LIKE` :
  - '%' permet de remplacer tous les charactères, peut importe leur nombre.
  - '_' permet de remplacer n'importe quel charactère, mais qu'un seul charactère uniquement.
 
-4) Sélectionnez les acteurs avec un prénom commenceant par 'K'.
+4) Sélectionnez les acteurs et actrices avec un prénom commenceant par 'K'.
 
 <!-- ```sql
 SELECT *
@@ -102,7 +102,7 @@ FROM films
 WHERE titre LIKE '%The%`
 ``` -->
 
-7) Sélectionnez les réalisateurs des films ayant deux 'l' à la suite dans leur titre.
+7) Sélectionnez les réalisateurs et réalisatrices des films ayant deux 'l' à la suite dans leur titre.
 
 <!-- ```sql
 SELECT r.nom
@@ -112,7 +112,7 @@ ON r.realisateur_id = f.realisateur_id
 WHERE f.titre LIKE '%ll%'
 ``` -->
 
-8) Sélectionnez les acteurs ayant joué dans des films ayant au moins deux 'l' dans leur titre.
+8) Sélectionnez les acteurs et actrices ayant joué dans des films ayant au moins deux 'l' dans leur titre.
 
 <!-- ```sql
 SELECT a.nom
@@ -136,9 +136,9 @@ FROM films
 WHERE UPPER(titre) LIKE UPPER('%l%l%')
 ``` -->
 
-10) Quels sont les acteurs des comédies ?
+10) Quels sont les acteurs et actrices des comédies ?
 
-```sql
+<!-- ```sql
 SELECT a.nom
 FROM acteurs AS a
 JOIN casting AS c
@@ -146,24 +146,24 @@ ON a.acteur_id = c.acteur_id
 JOIN films AS f
 ON f.film_id = c.film_id
 WHERE UPPER(f.genre) LIKE UPPER('comédie')
-```
+``` -->
 
 11) Comment trouver les rôles avec le charactère '_' dedant, comme 'Bruce Wayne _ Batman' ?
-
-```sql
-SELECT role
-FROM casting
-WHERE role LIKE '%!_%' ESCAPE '!'
-```
 
 <details>
     <summary> <i> Indice </i> </summary>
     <a href=https://stackoverflow.com/a/14518639>Escape caracters in LIKE queries</a>
 </details><br>
 
-12) Quels sont les films dans lequels le réalisateurs, et au moins un des acteurs, possède un 'e' dans leur nom ou prénom ?
+<!-- ```sql
+SELECT role
+FROM casting
+WHERE role LIKE '%!_%' ESCAPE '!'
+``` -->
 
-```sql
+12) Quels sont les films dans lequels le réalisateur ou la réalisatrice, et au moins un ou une des acteurs ou actrices, possède un 'e' dans leur nom ou prénom ?
+
+<!-- ```sql
 SELECT DISTINCT a.nom
 FROM acteurs AS a
 JOIN casting AS c
@@ -174,4 +174,4 @@ JOIN realisateurs AS r
 ON r.realisateur_id = f.realisateur_id
 WHERE (r.nom LIKE '%e%' OR r.prenom LIKE '%e%')
 AND (a.nom LIKE '%e%' OR a.prenom LIKE '%e%')
-```
+``` -->

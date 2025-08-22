@@ -43,7 +43,7 @@ ON entreprises.id = employes.entreprise_id
 
 C'est un peu plus facile de s'y retrouver.
 
-Cependant, si vous chercher à obtenir seulement le nom de l'entreprise et celui de l'employé, vous allez rencontrer un problème...
+Cependant, si vous chercher à obtenir seulement le nom de l'entreprise et celui de l'employé(e), vous allez rencontrer un problème...
 
 ```sql
 SELECT nom, nom FROM employes
@@ -51,7 +51,7 @@ JOIN entrprises
 ON entreprises.id = employes.entreprise_id
 ```
 
-1) Essayez d'utiliser la diapositive 29 du [cours](https://docs.google.com/presentation/d/1TKlmLLidOdDczgt6kVVT4sk8SPTT3wJeAhqYRh8FDHs/edit?usp=sharing) pour sélectionner le nom de chaque employé, et le nom de l'entreprise à laquelle il appartient.
+1) Essayez d'utiliser la diapositive 29 du [cours](https://docs.google.com/presentation/d/1TKlmLLidOdDczgt6kVVT4sk8SPTT3wJeAhqYRh8FDHs/edit?usp=sharing) pour sélectionner le nom de chaque employé(e), et le nom de l'entreprise à laquelle il ou elle appartient.
 
 <!-- ```sql
 SELECT ent.nom, emp.nom FROM entreprises AS ent
@@ -89,7 +89,7 @@ AND emp.prenom = 'Nancy'
     ON ent.id = emp.entreprise_id</code>
 </details>
 
-4) Ou se situe l'entreprise qui possède l'employé avec le meilleur salaire ?
+4) Ou se situe l'entreprise qui embauche l'employé(e) avec le meilleur salaire ?
 
 <!-- ```sql
 SELECT ent.ville FROM entreprises AS ent
@@ -99,7 +99,7 @@ ORDER BY salaire DESC
 LIMIT 1
 ``` -->
 
-5) Parmis les employés situés à `Atlanta`, lequel est le moins bien payé, et quelle est son entreprise ?
+5) Qui est l'employé(e) avec le salaire le plus bas des entreprises situées à `Atlanta` ?
 
 <!-- ```sql
 SELECT ent.nom, emp.nom FROM entreprises AS ent
@@ -205,7 +205,7 @@ ON l.instrument_id = i.id
 
 On peut ainsi cumuler le nombre de jointures, autant que nous en avons besoin.
 
-> Attention ! Sur des tables de taille importante, une jointure peut être couteuse et donc prendre du temps. Pensez à ne réaliser que les jointures qui sont nécessaires à votre requête.
+> Attention ! Sur des tables de taille importante, une jointure peut être couteuse et donc prendre du temps. Ne réalisez que les jointures qui sont nécessaires à votre requête.
 
 Formulez une requêtes pour las questions suivantes :
 
@@ -250,7 +250,7 @@ ORDER BY s.streams
 LIMIT 1
 ``` -->
 
-11) Quels sont les instruments utilisés par les compositeurs de chaque sons ? Affichez Le titre, le nom du compositeur, et ses instruments.
+11) Quels sont les instruments utilisés par les compositeurs et compositrices de chaque sons ? Affichez Le titre, le nom du compositeur ou de la compositrice, et ses instruments.
 
 <!-- ```sql
 SELECT m.prenom, m.nom, i.nom AS instrument, s.nom AS son
@@ -280,6 +280,6 @@ WHERE i.nom = 'voix'
 AND g.date_creation < '2008-01-01'
 ``` -->
 
-13) Pourquoi n'est il pas possible, avec vos connaissance actelles, de formuler une requête répondant à la question suivante : Quel est la chanson avec le plus de streams, parmis les chansons composées par le musicien le plus jeune ?
+13) Pourquoi n'est il pas possible, avec vos connaissance actuelles, de formuler une requête répondant à la question suivante : Quelle est la chanson avec le plus de streams, parmi les chansons composées par l'artiste le ou la plus jeune ?
 
-<!-- > Une manière de répondre à la question est de, dans un premier temps, détermier quel est le musicien le plus jeune, puis, dans un second temps, trouver quelle chanson a le plus de streams parmi celles qu'il a composé. Cependant, avec vos connaissances actuelles, vous ne pouvez faire que des requêtes instantannées. Il faudra attendre les requêtes imbriquées pour faire des requêtes en plusieurs temps. Même si il est tout de même possible de determiner le musicien le plus jeune dans le même temps de troucher ses sons, cela nécessite l'utilisation des fonctions d'aggrégation, que vous ne connaissez pas encore. -->
+<!-- > Une manière de répondre à la question est de, dans un premier temps, détermier quel est le ou la plus jeune musicien(ne), puis, dans un second temps, trouver quelle chanson a le plus de streams parmi celles qu'il ou elle a composé. Cependant, avec vos connaissances actuelles, vous ne pouvez faire que des requêtes instantannées. Il faudra attendre les requêtes imbriquées pour faire des requêtes en plusieurs temps. Il est tout de même possible de determiner le ou la plus jeune musicien(ne) et dans le même temps trouver ses sons, mais cela nécessite l'utilisation des fonctions d'aggrégation, que vous ne connaissez pas encore. -->
